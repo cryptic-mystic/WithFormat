@@ -1,27 +1,62 @@
-﻿using System;
+﻿using System.Globalization;
 
 namespace WithFormat
 {
-    public class TryingThingsOut
+    public static class Extentions
     {
-        public void TryingThisStuff()
+        public static IntegerFormatBuilder DecimalFormat(this int input)
         {
-            const int testNum = 6;
+            return new IntegerFormatBuilder(input, FormatConstants.DecimalSpecifier);
+        }
 
-            Console.WriteLine(testNum.DecimalFormat(6));
+        public static IntegerFormatBuilder CurrencyFormat(this int input)
+        {
+            return new IntegerFormatBuilder(input, FormatConstants.CurrencySpecifier);
+        }
+
+        public static CurrencyCultureFormatBuilder UsDollar(this IntegerFormatBuilder builder)
+        {
+            return new CurrencyCultureFormatBuilder(builder, CurrencyCultureConstants.UsDollar);
+        }
+
+        public static CurrencyCultureFormatBuilder JapaneseYen(this IntegerFormatBuilder builder)
+        {
+            return new CurrencyCultureFormatBuilder(builder, CurrencyCultureConstants.JapaneseYen);
+        }
+
+        public static IntegerFormatBuilder Precision(this IntegerFormatBuilder builder, int precision)
+        {
+            builder.PrecisionSpecifier = precision.DecimalFormat().ToString();
+            return builder;
+        }
+
+        public static CurrencyCultureFormatBuilder Precision(this CurrencyCultureFormatBuilder builder, int precision)
+        {
+            builder.PrecisionSpecifier = precision.DecimalFormat().ToString();
+            return builder;
         }
     }
 
-    public static class Extentions
+    public class CurrencyCultureFormatBuilder
     {
-        public static string DecimalFormat(this int input)
+        private readonly IntegerFormatBuilder subject;
+        private readonly string _cultureString;
+
+        public CurrencyCultureFormatBuilder(IntegerFormatBuilder subject, string cultureString)
         {
-            return input.ToString(String.Format("D"));
+            this.subject = subject;
+            this._cultureString = cultureString;
         }
 
-        public static string DecimalFormat(this int input, int digits)
+        public string PrecisionSpecifier
         {
-            return input.ToString(String.Format("D{0}", digits));
+            get { return subject.PrecisionSpecifier; }
+            set { subject.PrecisionSpecifier = value; }
+        }
+
+        public override string ToString()
+        {
+            return subject.ToString(CultureInfo.CreateSpecificCulture(_cultureString));
         }
     }
 }
