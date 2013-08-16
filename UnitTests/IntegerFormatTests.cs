@@ -81,7 +81,7 @@ namespace UnitTests
             var specificCulture = CultureInfo.CreateSpecificCulture("ja-JP");
 
             //Act
-            var result = testInteger.CurrencyFormat().JapaneseYen().ToString();
+            var result = testInteger.CurrencyFormat().JapaneseJapanCulture().ToString();
 
             //Assert
             result.ShouldEqual(testInteger.ToString("C", specificCulture));
@@ -95,7 +95,7 @@ namespace UnitTests
             var specificCulture = CultureInfo.CreateSpecificCulture("ja-JP");
 
             //Act
-            var result = testInteger.CurrencyFormat().Precision(3).JapaneseYen().ToString();
+            var result = testInteger.CurrencyFormat().Precision(3).JapaneseJapanCulture().ToString();
 
             //Assert
             result.ShouldEqual(testInteger.ToString("C3", specificCulture));
