@@ -163,7 +163,6 @@ namespace UnitTests
             //Assert
             result.ShouldEqual(testInteger.ToString("E", CultureInfo.CreateSpecificCulture("fr-FR")));
         }
-
         [Test]
         public void Format_WhenInvoked_ShouldReturnExponentialFormattedStringWithCultureAndPrecision()
         {
