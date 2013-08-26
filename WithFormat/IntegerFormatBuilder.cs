@@ -1,31 +1,41 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace WithFormat
 {
     public class IntegerFormatBuilder
     {
-        private readonly int _subject;
-        private readonly char _formatSpecifier;
+        public int Subject { get; private set; }
+        public string FormatSpecifier { get; private set; }
+        internal CultureInfo Culture { get; private set; }
 
-        public string PrecisionSpecifier { get; set; }
-
-        public IntegerFormatBuilder(int subject, char formatSpecifier)
+        internal IntegerFormatBuilder(int subject, string formatSpecifier)
         {
-            _subject = subject;
-            _formatSpecifier = formatSpecifier;
+            Subject = subject;
+            FormatSpecifier = formatSpecifier;
         }
 
-        public override string ToString()
+        internal IntegerFormatBuilder(int subject, string formatSpecifier, CultureInfo culture)
         {
-            var formatString = String.Format("{0}{1}", _formatSpecifier, PrecisionSpecifier);
-            return _subject.ToString(formatString);
+            Subject = subject;
+            FormatSpecifier = formatSpecifier;
+            Culture = culture;
         }
 
-        public string ToString(CultureInfo culture)
+        public IntegerFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
         {
-            var formatString = String.Format("{0}{1}", _formatSpecifier, PrecisionSpecifier);
-            return _subject.ToString(formatString, culture);
+            var culture = new T();
+            Culture = culture.Culture();
+            return this;
         }
+
+        public string Format()
+        {
+            return Subject.ToString(FormatSpecifier, Culture);
+        }
+    }
+
+    public interface IFormatCulture
+    {
+        CultureInfo Culture();
     }
 }

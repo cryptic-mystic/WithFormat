@@ -2,8 +2,9 @@
 {
     public static class FormatConstants
     {
-        public const char DecimalSpecifier = 'D';
-
-        public const char CurrencySpecifier = 'C';
+        public const string DecimalSpecifier = "D";
+        public const string HexidecimalSpecifier = "X";
+        public const string CurrencySpecifier = "C";
+        public const string ExponentialSpecifier = "E";
     }
 }

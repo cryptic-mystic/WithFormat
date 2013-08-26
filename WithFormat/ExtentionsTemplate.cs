@@ -8,893 +8,1335 @@ using System.Globalization;
 using WithFormat;
 
 
-public static class CultureExtentions {
-			public static CurrencyCultureFormatBuilder ArabicSaudiArabiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-SA");
-	}
-			public static CurrencyCultureFormatBuilder BulgarianBulgariaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "bg-BG");
-	}
-			public static CurrencyCultureFormatBuilder CatalanCatalanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ca-ES");
-	}
-			public static CurrencyCultureFormatBuilder ChineseTraditionalTaiwanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "zh-TW");
-	}
-			public static CurrencyCultureFormatBuilder CzechCzechRepublicCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "cs-CZ");
-	}
-			public static CurrencyCultureFormatBuilder DanishDenmarkCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "da-DK");
-	}
-			public static CurrencyCultureFormatBuilder GermanGermanyCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "de-DE");
-	}
-			public static CurrencyCultureFormatBuilder GreekGreeceCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "el-GR");
-	}
-			public static CurrencyCultureFormatBuilder EnglishUnitedStatesCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-US");
-	}
-			public static CurrencyCultureFormatBuilder FinnishFinlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fi-FI");
-	}
-			public static CurrencyCultureFormatBuilder FrenchFranceCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fr-FR");
-	}
-			public static CurrencyCultureFormatBuilder HebrewIsraelCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "he-IL");
-	}
-			public static CurrencyCultureFormatBuilder HungarianHungaryCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "hu-HU");
-	}
-			public static CurrencyCultureFormatBuilder IcelandicIcelandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "is-IS");
-	}
-			public static CurrencyCultureFormatBuilder ItalianItalyCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "it-IT");
-	}
-			public static CurrencyCultureFormatBuilder JapaneseJapanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ja-JP");
-	}
-			public static CurrencyCultureFormatBuilder KoreanKoreaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ko-KR");
-	}
-			public static CurrencyCultureFormatBuilder DutchNetherlandsCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "nl-NL");
-	}
-			public static CurrencyCultureFormatBuilder NorwegianBokmålNorwayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "nb-NO");
-	}
-			public static CurrencyCultureFormatBuilder PolishPolandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "pl-PL");
-	}
-			public static CurrencyCultureFormatBuilder PortugueseBrazilCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "pt-BR");
-	}
-			public static CurrencyCultureFormatBuilder RomanshSwitzerlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "rm-CH");
-	}
-			public static CurrencyCultureFormatBuilder RomanianRomaniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ro-RO");
-	}
-			public static CurrencyCultureFormatBuilder RussianRussiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ru-RU");
-	}
-			public static CurrencyCultureFormatBuilder CroatianCroatiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "hr-HR");
-	}
-			public static CurrencyCultureFormatBuilder SlovakSlovakiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sk-SK");
-	}
-			public static CurrencyCultureFormatBuilder AlbanianAlbaniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sq-AL");
-	}
-			public static CurrencyCultureFormatBuilder SwedishSwedenCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sv-SE");
-	}
-			public static CurrencyCultureFormatBuilder ThaiThailandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "th-TH");
-	}
-			public static CurrencyCultureFormatBuilder TurkishTurkeyCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tr-TR");
-	}
-			public static CurrencyCultureFormatBuilder UrduIslamicRepublicofPakistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ur-PK");
-	}
-			public static CurrencyCultureFormatBuilder IndonesianIndonesiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "id-ID");
-	}
-			public static CurrencyCultureFormatBuilder UkrainianUkraineCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "uk-UA");
-	}
-			public static CurrencyCultureFormatBuilder BelarusianBelarusCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "be-BY");
-	}
-			public static CurrencyCultureFormatBuilder SlovenianSloveniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sl-SI");
-	}
-			public static CurrencyCultureFormatBuilder EstonianEstoniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "et-EE");
-	}
-			public static CurrencyCultureFormatBuilder LatvianLatviaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "lv-LV");
-	}
-			public static CurrencyCultureFormatBuilder LithuanianLithuaniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "lt-LT");
-	}
-			public static CurrencyCultureFormatBuilder TajikCyrillicTajikistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tg-Cyrl-TJ");
-	}
-			public static CurrencyCultureFormatBuilder PersianCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fa-IR");
-	}
-			public static CurrencyCultureFormatBuilder VietnameseVietnamCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "vi-VN");
-	}
-			public static CurrencyCultureFormatBuilder ArmenianArmeniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "hy-AM");
-	}
-			public static CurrencyCultureFormatBuilder AzeriLatinAzerbaijanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "az-Latn-AZ");
-	}
-			public static CurrencyCultureFormatBuilder BasqueBasqueCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "eu-ES");
-	}
-			public static CurrencyCultureFormatBuilder UpperSorbianGermanyCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "hsb-DE");
-	}
-			public static CurrencyCultureFormatBuilder MacedonianFormerYugoslavRepublicofMacedoniaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "mk-MK");
-	}
-			public static CurrencyCultureFormatBuilder SetswanaSouthAfricaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tn-ZA");
-	}
-			public static CurrencyCultureFormatBuilder isiXhosaSouthAfricaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "xh-ZA");
-	}
-			public static CurrencyCultureFormatBuilder isiZuluSouthAfricaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "zu-ZA");
-	}
-			public static CurrencyCultureFormatBuilder AfrikaansSouthAfricaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "af-ZA");
-	}
-			public static CurrencyCultureFormatBuilder GeorgianGeorgiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ka-GE");
-	}
-			public static CurrencyCultureFormatBuilder FaroeseFaroeIslandsCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fo-FO");
-	}
-			public static CurrencyCultureFormatBuilder HindiIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "hi-IN");
-	}
-			public static CurrencyCultureFormatBuilder MalteseMaltaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "mt-MT");
-	}
-			public static CurrencyCultureFormatBuilder SamiNorthernNorwayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "se-NO");
-	}
-			public static CurrencyCultureFormatBuilder MalayMalaysiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ms-MY");
-	}
-			public static CurrencyCultureFormatBuilder KazakhKazakhstanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "kk-KZ");
-	}
-			public static CurrencyCultureFormatBuilder KyrgyzKyrgyzstanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ky-KG");
-	}
-			public static CurrencyCultureFormatBuilder KiswahiliKenyaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sw-KE");
-	}
-			public static CurrencyCultureFormatBuilder TurkmenTurkmenistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tk-TM");
-	}
-			public static CurrencyCultureFormatBuilder UzbekLatinUzbekistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "uz-Latn-UZ");
-	}
-			public static CurrencyCultureFormatBuilder TatarRussiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tt-RU");
-	}
-			public static CurrencyCultureFormatBuilder BengaliIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "bn-IN");
-	}
-			public static CurrencyCultureFormatBuilder PunjabiIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "pa-IN");
-	}
-			public static CurrencyCultureFormatBuilder GujaratiIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "gu-IN");
-	}
-			public static CurrencyCultureFormatBuilder OriyaIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "or-IN");
-	}
-			public static CurrencyCultureFormatBuilder TamilIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ta-IN");
-	}
-			public static CurrencyCultureFormatBuilder TeluguIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "te-IN");
-	}
-			public static CurrencyCultureFormatBuilder KannadaIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "kn-IN");
-	}
-			public static CurrencyCultureFormatBuilder MalayalamIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ml-IN");
-	}
-			public static CurrencyCultureFormatBuilder AssameseIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "as-IN");
-	}
-			public static CurrencyCultureFormatBuilder MarathiIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "mr-IN");
-	}
-			public static CurrencyCultureFormatBuilder SanskritIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sa-IN");
-	}
-			public static CurrencyCultureFormatBuilder MongolianCyrillicMongoliaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "mn-MN");
-	}
-			public static CurrencyCultureFormatBuilder TibetanPRCCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "bo-CN");
-	}
-			public static CurrencyCultureFormatBuilder WelshUnitedKingdomCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "cy-GB");
-	}
-			public static CurrencyCultureFormatBuilder KhmerCambodiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "km-KH");
-	}
-			public static CurrencyCultureFormatBuilder LaoLaoPDRCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "lo-LA");
-	}
-			public static CurrencyCultureFormatBuilder GalicianGalicianCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "gl-ES");
-	}
-			public static CurrencyCultureFormatBuilder KonkaniIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "kok-IN");
-	}
-			public static CurrencyCultureFormatBuilder SyriacSyriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "syr-SY");
-	}
-			public static CurrencyCultureFormatBuilder SinhalaSriLankaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "si-LK");
-	}
-			public static CurrencyCultureFormatBuilder CherokeeCherokeeCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "chr-Cher-US");
-	}
-			public static CurrencyCultureFormatBuilder InuktitutSyllabicsCanadaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "iu-Cans-CA");
-	}
-			public static CurrencyCultureFormatBuilder AmharicEthiopiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "am-ET");
-	}
-			public static CurrencyCultureFormatBuilder NepaliNepalCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ne-NP");
-	}
-			public static CurrencyCultureFormatBuilder FrisianNetherlandsCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fy-NL");
-	}
-			public static CurrencyCultureFormatBuilder PashtoAfghanistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ps-AF");
-	}
-			public static CurrencyCultureFormatBuilder FilipinoPhilippinesCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fil-PH");
-	}
-			public static CurrencyCultureFormatBuilder DivehiMaldivesCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "dv-MV");
-	}
-			public static CurrencyCultureFormatBuilder HausaLatinNigeriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ha-Latn-NG");
-	}
-			public static CurrencyCultureFormatBuilder YorubaNigeriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "yo-NG");
-	}
-			public static CurrencyCultureFormatBuilder QuechuaBoliviaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "quz-BO");
-	}
-			public static CurrencyCultureFormatBuilder SesothosaLeboaSouthAfricaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "nso-ZA");
-	}
-			public static CurrencyCultureFormatBuilder BashkirRussiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ba-RU");
-	}
-			public static CurrencyCultureFormatBuilder LuxembourgishLuxembourgCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "lb-LU");
-	}
-			public static CurrencyCultureFormatBuilder GreenlandicGreenlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "kl-GL");
-	}
-			public static CurrencyCultureFormatBuilder IgboNigeriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ig-NG");
-	}
-			public static CurrencyCultureFormatBuilder TigrinyaEthiopiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ti-ET");
-	}
-			public static CurrencyCultureFormatBuilder HawaiianUnitedStatesCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "haw-US");
-	}
-			public static CurrencyCultureFormatBuilder YiPRCCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ii-CN");
-	}
-			public static CurrencyCultureFormatBuilder MapudungunChileCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "arn-CL");
-	}
-			public static CurrencyCultureFormatBuilder MohawkMohawkCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "moh-CA");
-	}
-			public static CurrencyCultureFormatBuilder BretonFranceCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "br-FR");
-	}
-			public static CurrencyCultureFormatBuilder UyghurPRCCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ug-CN");
-	}
-			public static CurrencyCultureFormatBuilder MaoriNewZealandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "mi-NZ");
-	}
-			public static CurrencyCultureFormatBuilder OccitanFranceCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "oc-FR");
-	}
-			public static CurrencyCultureFormatBuilder CorsicanFranceCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "co-FR");
-	}
-			public static CurrencyCultureFormatBuilder AlsatianFranceCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "gsw-FR");
-	}
-			public static CurrencyCultureFormatBuilder SakhaRussiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sah-RU");
-	}
-			public static CurrencyCultureFormatBuilder KicheGuatemalaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "qut-GT");
-	}
-			public static CurrencyCultureFormatBuilder KinyarwandaRwandaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "rw-RW");
-	}
-			public static CurrencyCultureFormatBuilder WolofSenegalCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "wo-SN");
-	}
-			public static CurrencyCultureFormatBuilder DariAfghanistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "prs-AF");
-	}
-			public static CurrencyCultureFormatBuilder ScottishGaelicUnitedKingdomCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "gd-GB");
-	}
-			public static CurrencyCultureFormatBuilder CentralKurdishIraqCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ku-Arab-IQ");
-	}
-			public static CurrencyCultureFormatBuilder ArabicIraqCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-IQ");
-	}
-			public static CurrencyCultureFormatBuilder ValencianSpainCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ca-ES-valencia");
-	}
-			public static CurrencyCultureFormatBuilder ChineseSimplifiedPRCCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "zh-CN");
-	}
-			public static CurrencyCultureFormatBuilder GermanSwitzerlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "de-CH");
-	}
-			public static CurrencyCultureFormatBuilder EnglishUnitedKingdomCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-GB");
-	}
-			public static CurrencyCultureFormatBuilder SpanishMexicoCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-MX");
-	}
-			public static CurrencyCultureFormatBuilder FrenchBelgiumCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fr-BE");
-	}
-			public static CurrencyCultureFormatBuilder ItalianSwitzerlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "it-CH");
-	}
-			public static CurrencyCultureFormatBuilder DutchBelgiumCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "nl-BE");
-	}
-			public static CurrencyCultureFormatBuilder NorwegianNynorskNorwayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "nn-NO");
-	}
-			public static CurrencyCultureFormatBuilder PortuguesePortugalCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "pt-PT");
-	}
-			public static CurrencyCultureFormatBuilder SerbianLatinSerbiaandMontenegroFormerCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Latn-CS");
-	}
-			public static CurrencyCultureFormatBuilder SwedishFinlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sv-FI");
-	}
-			public static CurrencyCultureFormatBuilder AzeriCyrillicAzerbaijanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "az-Cyrl-AZ");
-	}
-			public static CurrencyCultureFormatBuilder LowerSorbianGermanyCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "dsb-DE");
-	}
-			public static CurrencyCultureFormatBuilder SetswanaBotswanaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tn-BW");
-	}
-			public static CurrencyCultureFormatBuilder SamiNorthernSwedenCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "se-SE");
-	}
-			public static CurrencyCultureFormatBuilder IrishIrelandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ga-IE");
-	}
-			public static CurrencyCultureFormatBuilder MalayBruneiDarussalamCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ms-BN");
-	}
-			public static CurrencyCultureFormatBuilder UzbekCyrillicUzbekistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "uz-Cyrl-UZ");
-	}
-			public static CurrencyCultureFormatBuilder BengaliBangladeshCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "bn-BD");
-	}
-			public static CurrencyCultureFormatBuilder PunjabiIslamicRepublicofPakistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "pa-Arab-PK");
-	}
-			public static CurrencyCultureFormatBuilder TamilSriLankaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ta-LK");
-	}
-			public static CurrencyCultureFormatBuilder MongolianTraditionalMongolianPRCCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "mn-Mong-CN");
-	}
-			public static CurrencyCultureFormatBuilder SindhiIslamicRepublicofPakistanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sd-Arab-PK");
-	}
-			public static CurrencyCultureFormatBuilder InuktitutLatinCanadaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "iu-Latn-CA");
-	}
-			public static CurrencyCultureFormatBuilder TamazightLatinAlgeriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tzm-Latn-DZ");
-	}
-			public static CurrencyCultureFormatBuilder FulahLatinSenegalCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ff-Latn-SN");
-	}
-			public static CurrencyCultureFormatBuilder QuechuaEcuadorCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "quz-EC");
-	}
-			public static CurrencyCultureFormatBuilder TigrinyaEritreaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ti-ER");
-	}
-			public static CurrencyCultureFormatBuilder ArabicEgyptCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-EG");
-	}
-			public static CurrencyCultureFormatBuilder ChineseTraditionalHongKongSARCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "zh-HK");
-	}
-			public static CurrencyCultureFormatBuilder GermanAustriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "de-AT");
-	}
-			public static CurrencyCultureFormatBuilder EnglishAustraliaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-AU");
-	}
-			public static CurrencyCultureFormatBuilder SpanishSpainCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-ES");
-	}
-			public static CurrencyCultureFormatBuilder FrenchCanadaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fr-CA");
-	}
-			public static CurrencyCultureFormatBuilder SerbianCyrillicSerbiaandMontenegroFormerCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Cyrl-CS");
-	}
-			public static CurrencyCultureFormatBuilder SamiNorthernFinlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "se-FI");
-	}
-			public static CurrencyCultureFormatBuilder QuechuaPeruCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "quz-PE");
-	}
-			public static CurrencyCultureFormatBuilder ArabicLibyaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-LY");
-	}
-			public static CurrencyCultureFormatBuilder ChineseSimplifiedSingaporeCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "zh-SG");
-	}
-			public static CurrencyCultureFormatBuilder GermanLuxembourgCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "de-LU");
-	}
-			public static CurrencyCultureFormatBuilder EnglishCanadaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-CA");
-	}
-			public static CurrencyCultureFormatBuilder SpanishGuatemalaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-GT");
-	}
-			public static CurrencyCultureFormatBuilder FrenchSwitzerlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fr-CH");
-	}
-			public static CurrencyCultureFormatBuilder CroatianLatinBosniaandHerzegovinaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "hr-BA");
-	}
-			public static CurrencyCultureFormatBuilder SamiLuleNorwayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "smj-NO");
-	}
-			public static CurrencyCultureFormatBuilder CentralAtlasTamazightTifinaghMoroccoCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "tzm-Tfng-MA");
-	}
-			public static CurrencyCultureFormatBuilder ArabicAlgeriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-DZ");
-	}
-			public static CurrencyCultureFormatBuilder ChineseTraditionalMacaoSARCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "zh-MO");
-	}
-			public static CurrencyCultureFormatBuilder GermanLiechtensteinCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "de-LI");
-	}
-			public static CurrencyCultureFormatBuilder EnglishNewZealandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-NZ");
-	}
-			public static CurrencyCultureFormatBuilder SpanishCostaRicaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-CR");
-	}
-			public static CurrencyCultureFormatBuilder FrenchLuxembourgCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fr-LU");
-	}
-			public static CurrencyCultureFormatBuilder BosnianLatinBosniaandHerzegovinaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "bs-Latn-BA");
-	}
-			public static CurrencyCultureFormatBuilder SamiLuleSwedenCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "smj-SE");
-	}
-			public static CurrencyCultureFormatBuilder ArabicMoroccoCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-MA");
-	}
-			public static CurrencyCultureFormatBuilder EnglishIrelandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-IE");
-	}
-			public static CurrencyCultureFormatBuilder SpanishPanamaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-PA");
-	}
-			public static CurrencyCultureFormatBuilder FrenchMonacoCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "fr-MC");
-	}
-			public static CurrencyCultureFormatBuilder SerbianLatinBosniaandHerzegovinaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Latn-BA");
-	}
-			public static CurrencyCultureFormatBuilder SamiSouthernNorwayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sma-NO");
-	}
-			public static CurrencyCultureFormatBuilder ArabicTunisiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-TN");
-	}
-			public static CurrencyCultureFormatBuilder EnglishSouthAfricaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-ZA");
-	}
-			public static CurrencyCultureFormatBuilder SpanishDominicanRepublicCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-DO");
-	}
-			public static CurrencyCultureFormatBuilder SerbianCyrillicBosniaandHerzegovinaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Cyrl-BA");
-	}
-			public static CurrencyCultureFormatBuilder SamiSouthernSwedenCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sma-SE");
-	}
-			public static CurrencyCultureFormatBuilder ArabicOmanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-OM");
-	}
-			public static CurrencyCultureFormatBuilder EnglishJamaicaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-JM");
-	}
-			public static CurrencyCultureFormatBuilder SpanishBolivarianRepublicofVenezuelaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-VE");
-	}
-			public static CurrencyCultureFormatBuilder BosnianCyrillicBosniaandHerzegovinaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "bs-Cyrl-BA");
-	}
-			public static CurrencyCultureFormatBuilder SamiSkoltFinlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sms-FI");
-	}
-			public static CurrencyCultureFormatBuilder ArabicYemenCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-YE");
-	}
-			public static CurrencyCultureFormatBuilder EnglishCaribbeanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-029");
-	}
-			public static CurrencyCultureFormatBuilder SpanishColombiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-CO");
-	}
-			public static CurrencyCultureFormatBuilder SerbianLatinSerbiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Latn-RS");
-	}
-			public static CurrencyCultureFormatBuilder SamiInariFinlandCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "smn-FI");
-	}
-			public static CurrencyCultureFormatBuilder ArabicSyriaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-SY");
-	}
-			public static CurrencyCultureFormatBuilder EnglishBelizeCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-BZ");
-	}
-			public static CurrencyCultureFormatBuilder SpanishPeruCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-PE");
-	}
-			public static CurrencyCultureFormatBuilder SerbianCyrillicSerbiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Cyrl-RS");
-	}
-			public static CurrencyCultureFormatBuilder ArabicJordanCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-JO");
-	}
-			public static CurrencyCultureFormatBuilder EnglishTrinidadandTobagoCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-TT");
-	}
-			public static CurrencyCultureFormatBuilder SpanishArgentinaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-AR");
-	}
-			public static CurrencyCultureFormatBuilder SerbianLatinMontenegroCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Latn-ME");
-	}
-			public static CurrencyCultureFormatBuilder ArabicLebanonCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-LB");
-	}
-			public static CurrencyCultureFormatBuilder EnglishZimbabweCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-ZW");
-	}
-			public static CurrencyCultureFormatBuilder SpanishEcuadorCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-EC");
-	}
-			public static CurrencyCultureFormatBuilder SerbianCyrillicMontenegroCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "sr-Cyrl-ME");
-	}
-			public static CurrencyCultureFormatBuilder ArabicKuwaitCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-KW");
-	}
-			public static CurrencyCultureFormatBuilder EnglishRepublicofthePhilippinesCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-PH");
-	}
-			public static CurrencyCultureFormatBuilder SpanishChileCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-CL");
-	}
-			public static CurrencyCultureFormatBuilder ArabicUAECulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-AE");
-	}
-			public static CurrencyCultureFormatBuilder SpanishUruguayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-UY");
-	}
-			public static CurrencyCultureFormatBuilder ArabicBahrainCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-BH");
-	}
-			public static CurrencyCultureFormatBuilder SpanishParaguayCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-PY");
-	}
-			public static CurrencyCultureFormatBuilder ArabicQatarCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "ar-QA");
-	}
-			public static CurrencyCultureFormatBuilder EnglishIndiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-IN");
-	}
-			public static CurrencyCultureFormatBuilder SpanishBoliviaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-BO");
-	}
-			public static CurrencyCultureFormatBuilder EnglishMalaysiaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-MY");
-	}
-			public static CurrencyCultureFormatBuilder SpanishElSalvadorCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-SV");
-	}
-			public static CurrencyCultureFormatBuilder EnglishSingaporeCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "en-SG");
-	}
-			public static CurrencyCultureFormatBuilder SpanishHondurasCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-HN");
-	}
-			public static CurrencyCultureFormatBuilder SpanishNicaraguaCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-NI");
-	}
-			public static CurrencyCultureFormatBuilder SpanishPuertoRicoCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-PR");
-	}
-			public static CurrencyCultureFormatBuilder SpanishUnitedStatesCulture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "es-US");
-	}
-	}
+public class ArabicSaudiArabiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-SA");
+    }
+}
+public class BulgarianBulgariaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("bg-BG");
+    }
+}
+public class CatalanCatalanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ca-ES");
+    }
+}
+public class ChineseTraditionalTaiwanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("zh-TW");
+    }
+}
+public class CzechCzechRepublicCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("cs-CZ");
+    }
+}
+public class DanishDenmarkCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("da-DK");
+    }
+}
+public class GermanGermanyCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("de-DE");
+    }
+}
+public class GreekGreeceCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("el-GR");
+    }
+}
+public class EnglishUnitedStatesCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-US");
+    }
+}
+public class FinnishFinlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fi-FI");
+    }
+}
+public class FrenchFranceCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fr-FR");
+    }
+}
+public class HebrewIsraelCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("he-IL");
+    }
+}
+public class HungarianHungaryCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("hu-HU");
+    }
+}
+public class IcelandicIcelandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("is-IS");
+    }
+}
+public class ItalianItalyCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("it-IT");
+    }
+}
+public class JapaneseJapanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ja-JP");
+    }
+}
+public class KoreanKoreaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ko-KR");
+    }
+}
+public class DutchNetherlandsCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("nl-NL");
+    }
+}
+public class NorwegianBokmålNorwayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("nb-NO");
+    }
+}
+public class PolishPolandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("pl-PL");
+    }
+}
+public class PortugueseBrazilCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("pt-BR");
+    }
+}
+public class RomanshSwitzerlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("rm-CH");
+    }
+}
+public class RomanianRomaniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ro-RO");
+    }
+}
+public class RussianRussiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ru-RU");
+    }
+}
+public class CroatianCroatiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("hr-HR");
+    }
+}
+public class SlovakSlovakiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sk-SK");
+    }
+}
+public class AlbanianAlbaniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sq-AL");
+    }
+}
+public class SwedishSwedenCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sv-SE");
+    }
+}
+public class ThaiThailandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("th-TH");
+    }
+}
+public class TurkishTurkeyCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tr-TR");
+    }
+}
+public class UrduIslamicRepublicofPakistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ur-PK");
+    }
+}
+public class IndonesianIndonesiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("id-ID");
+    }
+}
+public class UkrainianUkraineCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("uk-UA");
+    }
+}
+public class BelarusianBelarusCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("be-BY");
+    }
+}
+public class SlovenianSloveniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sl-SI");
+    }
+}
+public class EstonianEstoniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("et-EE");
+    }
+}
+public class LatvianLatviaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("lv-LV");
+    }
+}
+public class LithuanianLithuaniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("lt-LT");
+    }
+}
+public class TajikCyrillicTajikistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tg-Cyrl-TJ");
+    }
+}
+public class PersianCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fa-IR");
+    }
+}
+public class VietnameseVietnamCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("vi-VN");
+    }
+}
+public class ArmenianArmeniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("hy-AM");
+    }
+}
+public class AzeriLatinAzerbaijanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("az-Latn-AZ");
+    }
+}
+public class BasqueBasqueCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("eu-ES");
+    }
+}
+public class UpperSorbianGermanyCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("hsb-DE");
+    }
+}
+public class MacedonianFormerYugoslavRepublicofMacedoniaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("mk-MK");
+    }
+}
+public class SetswanaSouthAfricaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tn-ZA");
+    }
+}
+public class isiXhosaSouthAfricaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("xh-ZA");
+    }
+}
+public class isiZuluSouthAfricaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("zu-ZA");
+    }
+}
+public class AfrikaansSouthAfricaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("af-ZA");
+    }
+}
+public class GeorgianGeorgiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ka-GE");
+    }
+}
+public class FaroeseFaroeIslandsCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fo-FO");
+    }
+}
+public class HindiIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("hi-IN");
+    }
+}
+public class MalteseMaltaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("mt-MT");
+    }
+}
+public class SamiNorthernNorwayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("se-NO");
+    }
+}
+public class MalayMalaysiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ms-MY");
+    }
+}
+public class KazakhKazakhstanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("kk-KZ");
+    }
+}
+public class KyrgyzKyrgyzstanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ky-KG");
+    }
+}
+public class KiswahiliKenyaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sw-KE");
+    }
+}
+public class TurkmenTurkmenistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tk-TM");
+    }
+}
+public class UzbekLatinUzbekistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("uz-Latn-UZ");
+    }
+}
+public class TatarRussiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tt-RU");
+    }
+}
+public class BengaliIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("bn-IN");
+    }
+}
+public class PunjabiIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("pa-IN");
+    }
+}
+public class GujaratiIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("gu-IN");
+    }
+}
+public class OriyaIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("or-IN");
+    }
+}
+public class TamilIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ta-IN");
+    }
+}
+public class TeluguIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("te-IN");
+    }
+}
+public class KannadaIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("kn-IN");
+    }
+}
+public class MalayalamIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ml-IN");
+    }
+}
+public class AssameseIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("as-IN");
+    }
+}
+public class MarathiIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("mr-IN");
+    }
+}
+public class SanskritIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sa-IN");
+    }
+}
+public class MongolianCyrillicMongoliaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("mn-MN");
+    }
+}
+public class TibetanPRCCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("bo-CN");
+    }
+}
+public class WelshUnitedKingdomCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("cy-GB");
+    }
+}
+public class KhmerCambodiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("km-KH");
+    }
+}
+public class LaoLaoPDRCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("lo-LA");
+    }
+}
+public class GalicianGalicianCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("gl-ES");
+    }
+}
+public class KonkaniIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("kok-IN");
+    }
+}
+public class SyriacSyriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("syr-SY");
+    }
+}
+public class SinhalaSriLankaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("si-LK");
+    }
+}
+public class CherokeeCherokeeCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("chr-Cher-US");
+    }
+}
+public class InuktitutSyllabicsCanadaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("iu-Cans-CA");
+    }
+}
+public class AmharicEthiopiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("am-ET");
+    }
+}
+public class NepaliNepalCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ne-NP");
+    }
+}
+public class FrisianNetherlandsCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fy-NL");
+    }
+}
+public class PashtoAfghanistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ps-AF");
+    }
+}
+public class FilipinoPhilippinesCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fil-PH");
+    }
+}
+public class DivehiMaldivesCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("dv-MV");
+    }
+}
+public class HausaLatinNigeriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ha-Latn-NG");
+    }
+}
+public class YorubaNigeriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("yo-NG");
+    }
+}
+public class QuechuaBoliviaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("quz-BO");
+    }
+}
+public class SesothosaLeboaSouthAfricaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("nso-ZA");
+    }
+}
+public class BashkirRussiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ba-RU");
+    }
+}
+public class LuxembourgishLuxembourgCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("lb-LU");
+    }
+}
+public class GreenlandicGreenlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("kl-GL");
+    }
+}
+public class IgboNigeriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ig-NG");
+    }
+}
+public class TigrinyaEthiopiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ti-ET");
+    }
+}
+public class HawaiianUnitedStatesCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("haw-US");
+    }
+}
+public class YiPRCCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ii-CN");
+    }
+}
+public class MapudungunChileCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("arn-CL");
+    }
+}
+public class MohawkMohawkCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("moh-CA");
+    }
+}
+public class BretonFranceCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("br-FR");
+    }
+}
+public class UyghurPRCCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ug-CN");
+    }
+}
+public class MaoriNewZealandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("mi-NZ");
+    }
+}
+public class OccitanFranceCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("oc-FR");
+    }
+}
+public class CorsicanFranceCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("co-FR");
+    }
+}
+public class AlsatianFranceCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("gsw-FR");
+    }
+}
+public class SakhaRussiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sah-RU");
+    }
+}
+public class KicheGuatemalaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("qut-GT");
+    }
+}
+public class KinyarwandaRwandaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("rw-RW");
+    }
+}
+public class WolofSenegalCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("wo-SN");
+    }
+}
+public class DariAfghanistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("prs-AF");
+    }
+}
+public class ScottishGaelicUnitedKingdomCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("gd-GB");
+    }
+}
+public class CentralKurdishIraqCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ku-Arab-IQ");
+    }
+}
+public class ArabicIraqCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-IQ");
+    }
+}
+public class ValencianSpainCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ca-ES-valencia");
+    }
+}
+public class ChineseSimplifiedPRCCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("zh-CN");
+    }
+}
+public class GermanSwitzerlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("de-CH");
+    }
+}
+public class EnglishUnitedKingdomCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-GB");
+    }
+}
+public class SpanishMexicoCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-MX");
+    }
+}
+public class FrenchBelgiumCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fr-BE");
+    }
+}
+public class ItalianSwitzerlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("it-CH");
+    }
+}
+public class DutchBelgiumCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("nl-BE");
+    }
+}
+public class NorwegianNynorskNorwayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("nn-NO");
+    }
+}
+public class PortuguesePortugalCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("pt-PT");
+    }
+}
+public class SerbianLatinSerbiaandMontenegroFormerCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Latn-CS");
+    }
+}
+public class SwedishFinlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sv-FI");
+    }
+}
+public class AzeriCyrillicAzerbaijanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("az-Cyrl-AZ");
+    }
+}
+public class LowerSorbianGermanyCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("dsb-DE");
+    }
+}
+public class SetswanaBotswanaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tn-BW");
+    }
+}
+public class SamiNorthernSwedenCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("se-SE");
+    }
+}
+public class IrishIrelandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ga-IE");
+    }
+}
+public class MalayBruneiDarussalamCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ms-BN");
+    }
+}
+public class UzbekCyrillicUzbekistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("uz-Cyrl-UZ");
+    }
+}
+public class BengaliBangladeshCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("bn-BD");
+    }
+}
+public class PunjabiIslamicRepublicofPakistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("pa-Arab-PK");
+    }
+}
+public class TamilSriLankaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ta-LK");
+    }
+}
+public class MongolianTraditionalMongolianPRCCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("mn-Mong-CN");
+    }
+}
+public class SindhiIslamicRepublicofPakistanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sd-Arab-PK");
+    }
+}
+public class InuktitutLatinCanadaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("iu-Latn-CA");
+    }
+}
+public class TamazightLatinAlgeriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tzm-Latn-DZ");
+    }
+}
+public class FulahLatinSenegalCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ff-Latn-SN");
+    }
+}
+public class QuechuaEcuadorCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("quz-EC");
+    }
+}
+public class TigrinyaEritreaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ti-ER");
+    }
+}
+public class ArabicEgyptCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-EG");
+    }
+}
+public class ChineseTraditionalHongKongSARCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("zh-HK");
+    }
+}
+public class GermanAustriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("de-AT");
+    }
+}
+public class EnglishAustraliaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-AU");
+    }
+}
+public class SpanishSpainCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-ES");
+    }
+}
+public class FrenchCanadaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fr-CA");
+    }
+}
+public class SerbianCyrillicSerbiaandMontenegroFormerCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Cyrl-CS");
+    }
+}
+public class SamiNorthernFinlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("se-FI");
+    }
+}
+public class QuechuaPeruCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("quz-PE");
+    }
+}
+public class ArabicLibyaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-LY");
+    }
+}
+public class ChineseSimplifiedSingaporeCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("zh-SG");
+    }
+}
+public class GermanLuxembourgCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("de-LU");
+    }
+}
+public class EnglishCanadaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-CA");
+    }
+}
+public class SpanishGuatemalaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-GT");
+    }
+}
+public class FrenchSwitzerlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fr-CH");
+    }
+}
+public class CroatianLatinBosniaandHerzegovinaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("hr-BA");
+    }
+}
+public class SamiLuleNorwayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("smj-NO");
+    }
+}
+public class CentralAtlasTamazightTifinaghMoroccoCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("tzm-Tfng-MA");
+    }
+}
+public class ArabicAlgeriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-DZ");
+    }
+}
+public class ChineseTraditionalMacaoSARCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("zh-MO");
+    }
+}
+public class GermanLiechtensteinCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("de-LI");
+    }
+}
+public class EnglishNewZealandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-NZ");
+    }
+}
+public class SpanishCostaRicaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-CR");
+    }
+}
+public class FrenchLuxembourgCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fr-LU");
+    }
+}
+public class BosnianLatinBosniaandHerzegovinaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("bs-Latn-BA");
+    }
+}
+public class SamiLuleSwedenCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("smj-SE");
+    }
+}
+public class ArabicMoroccoCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-MA");
+    }
+}
+public class EnglishIrelandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-IE");
+    }
+}
+public class SpanishPanamaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-PA");
+    }
+}
+public class FrenchMonacoCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("fr-MC");
+    }
+}
+public class SerbianLatinBosniaandHerzegovinaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Latn-BA");
+    }
+}
+public class SamiSouthernNorwayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sma-NO");
+    }
+}
+public class ArabicTunisiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-TN");
+    }
+}
+public class EnglishSouthAfricaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-ZA");
+    }
+}
+public class SpanishDominicanRepublicCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-DO");
+    }
+}
+public class SerbianCyrillicBosniaandHerzegovinaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Cyrl-BA");
+    }
+}
+public class SamiSouthernSwedenCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sma-SE");
+    }
+}
+public class ArabicOmanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-OM");
+    }
+}
+public class EnglishJamaicaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-JM");
+    }
+}
+public class SpanishBolivarianRepublicofVenezuelaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-VE");
+    }
+}
+public class BosnianCyrillicBosniaandHerzegovinaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("bs-Cyrl-BA");
+    }
+}
+public class SamiSkoltFinlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sms-FI");
+    }
+}
+public class ArabicYemenCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-YE");
+    }
+}
+public class EnglishCaribbeanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-029");
+    }
+}
+public class SpanishColombiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-CO");
+    }
+}
+public class SerbianLatinSerbiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Latn-RS");
+    }
+}
+public class SamiInariFinlandCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("smn-FI");
+    }
+}
+public class ArabicSyriaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-SY");
+    }
+}
+public class EnglishBelizeCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-BZ");
+    }
+}
+public class SpanishPeruCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-PE");
+    }
+}
+public class SerbianCyrillicSerbiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Cyrl-RS");
+    }
+}
+public class ArabicJordanCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-JO");
+    }
+}
+public class EnglishTrinidadandTobagoCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-TT");
+    }
+}
+public class SpanishArgentinaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-AR");
+    }
+}
+public class SerbianLatinMontenegroCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Latn-ME");
+    }
+}
+public class ArabicLebanonCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-LB");
+    }
+}
+public class EnglishZimbabweCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-ZW");
+    }
+}
+public class SpanishEcuadorCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-EC");
+    }
+}
+public class SerbianCyrillicMontenegroCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("sr-Cyrl-ME");
+    }
+}
+public class ArabicKuwaitCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-KW");
+    }
+}
+public class EnglishRepublicofthePhilippinesCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-PH");
+    }
+}
+public class SpanishChileCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-CL");
+    }
+}
+public class ArabicUAECulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-AE");
+    }
+}
+public class SpanishUruguayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-UY");
+    }
+}
+public class ArabicBahrainCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-BH");
+    }
+}
+public class SpanishParaguayCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-PY");
+    }
+}
+public class ArabicQatarCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("ar-QA");
+    }
+}
+public class EnglishIndiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-IN");
+    }
+}
+public class SpanishBoliviaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-BO");
+    }
+}
+public class EnglishMalaysiaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-MY");
+    }
+}
+public class SpanishElSalvadorCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-SV");
+    }
+}
+public class EnglishSingaporeCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("en-SG");
+    }
+}
+public class SpanishHondurasCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-HN");
+    }
+}
+public class SpanishNicaraguaCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-NI");
+    }
+}
+public class SpanishPuertoRicoCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-PR");
+    }
+}
+public class SpanishUnitedStatesCulture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("es-US");
+    }
+}

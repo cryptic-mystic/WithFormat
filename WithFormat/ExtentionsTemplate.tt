@@ -16,12 +16,12 @@ using WithFormat;
 
 <# CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.SpecificCultures); #>
 
-public static class CultureExtentions {
-	<# foreach(var culture in cinfo) { #>
-	<# string trimmedName = culture.DisplayName.Replace(")", String.Empty).Replace("(", String.Empty).Replace(" ", String.Empty).Replace(",", String.Empty).Replace("'", String.Empty).Replace(".", String.Empty); #>
-	public static CurrencyCultureFormatBuilder <#= trimmedName #>Culture(this IntegerFormatBuilder builder)
-	{
-		return new CurrencyCultureFormatBuilder(builder, "<#= culture.Name #>");
-	}
-	<# } #>
+<# foreach(var culture in cinfo) { #>
+<# string trimmedName = culture.DisplayName.Replace(")", String.Empty).Replace("(", String.Empty).Replace(" ", String.Empty).Replace(",", String.Empty).Replace("'", String.Empty).Replace(".", String.Empty); #>
+public class <#= trimmedName #>Culture : IFormatCulture {
+
+    public CultureInfo Culture() {
+        return CultureInfo.CreateSpecificCulture("<#= culture.Name #>");
+    }
 }
+<# } #>
