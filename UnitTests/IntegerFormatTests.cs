@@ -170,10 +170,49 @@ namespace UnitTests
             const int testInteger = 4;
 
             //Act
-            var result = testInteger.WithExponential().WithCulture<FrenchFranceCulture>().Precision(7).Format();
+            var result = testInteger.WithExponential().Precision(7).WithCulture<FrenchFranceCulture>().Format();
 
             //Assert
             result.ShouldEqual(testInteger.ToString("E7", CultureInfo.CreateSpecificCulture("fr-FR")));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFixedPointFormattedString()
+        {
+            //Arrange
+            const int testInteger = 6;
+
+            //Act
+            var result = testInteger.WithFixedPoint().Format();
+
+            //Assert
+            result.ShouldEqual(testInteger.ToString("F"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFixedPointFormattedStringWithPrecision()
+        {
+            //Arrange
+            const int testInteger = 6;
+
+            //Act
+            var result = testInteger.WithFixedPoint().Precision(10).Format();
+
+            //Assert
+            result.ShouldEqual(testInteger.ToString("F10"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFixedPointFormattedStringWithCulture()
+        {
+            //Arrange
+            const int testInteger = 6;
+
+            //Act
+            var result = testInteger.WithFixedPoint().Precision(10).WithCulture<GermanGermanyCulture>().Format();
+
+            //Assert
+            result.ShouldEqual(testInteger.ToString("F10", CultureInfo.CreateSpecificCulture("de-DE")));
         }
     }
 }

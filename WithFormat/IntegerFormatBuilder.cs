@@ -28,14 +28,9 @@ namespace WithFormat
             return this;
         }
 
-        public string Format()
+        public virtual string Format()
         {
             return Subject.ToString(FormatSpecifier, Culture);
         }
-    }
-
-    public interface IFormatCulture
-    {
-        CultureInfo Culture();
     }
 }

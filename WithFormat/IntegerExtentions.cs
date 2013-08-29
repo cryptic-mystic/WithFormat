@@ -22,6 +22,11 @@
             return new IntegerFormatBuilder(input, FormatConstants.CurrencySpecifier);
         }
 
+        public static IntegerFormatBuilder WithFixedPoint(this int input)
+        {
+            return new IntegerFormatBuilder(input, FormatConstants.FixedPointSpecifier);
+        }
+
         public static PrecisionFormatBuilder Precision(this IntegerFormatBuilder builder, int precision)
         {
             return new PrecisionFormatBuilder(builder, precision);

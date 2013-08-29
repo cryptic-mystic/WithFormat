@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFormatCulture.cs" />
     <Compile Include="IntegerExtentions.cs" />
     <Compile Include="ExtentionsTemplate.cs">
       <AutoGen>True</AutoGen>

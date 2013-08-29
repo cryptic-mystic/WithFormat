@@ -4,14 +4,14 @@ namespace WithFormat
 {
     public class PrecisionFormatBuilder : IntegerFormatBuilder
     {
-        internal int Precision { get; private set; }
+        private int Precision { get; set; }
 
         public PrecisionFormatBuilder(IntegerFormatBuilder builder, int precision) : base(builder.Subject, builder.FormatSpecifier, builder.Culture)
         {
             Precision = precision;
         }
 
-        public string Format()
+        public override string Format()
         {
             var formatString = String.Format("{0}{1}", FormatSpecifier, Precision);
             return Subject.ToString(formatString, Culture);
