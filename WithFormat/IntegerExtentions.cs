@@ -27,7 +27,22 @@
             return new IntegerFormatBuilder(input, FormatConstants.FixedPointSpecifier);
         }
 
-        public static PrecisionFormatBuilder Precision(this IntegerFormatBuilder builder, int precision)
+        public static IntegerFormatBuilder WithGeneral(this int input)
+        {
+            return new IntegerFormatBuilder(input, FormatConstants.GeneralSpecifier);
+        }
+
+        public static IntegerFormatBuilder WithNumeric(this int input)
+        {
+            return new IntegerFormatBuilder(input, FormatConstants.NumericSpecifier);
+        }
+
+        public static IntegerFormatBuilder WithPercent(this int input)
+        {
+            return new IntegerFormatBuilder(input, FormatConstants.PercentSpecifier);
+        }
+
+        public static PrecisionFormatBuilder WithPrecision(this IntegerFormatBuilder builder, int precision)
         {
             return new PrecisionFormatBuilder(builder, precision);
         }
