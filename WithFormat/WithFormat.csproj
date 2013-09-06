@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DecimalExtentions.cs" />
+    <Compile Include="DecimalFormatBuilder.cs" />
     <Compile Include="IFormatCulture.cs" />
     <Compile Include="IntegerExtentions.cs" />
     <Compile Include="ExtentionsTemplate.cs">
@@ -48,7 +50,6 @@
     </Compile>
     <Compile Include="IntegerFormatBuilder.cs" />
     <Compile Include="FormatConstants.cs" />
-    <Compile Include="PrecisionFormatBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -41,10 +41,5 @@
         {
             return new IntegerFormatBuilder(input, FormatConstants.PercentSpecifier);
         }
-
-        public static PrecisionFormatBuilder WithPrecision(this IntegerFormatBuilder builder, int precision)
-        {
-            return new PrecisionFormatBuilder(builder, precision);
-        }
     }
 }
