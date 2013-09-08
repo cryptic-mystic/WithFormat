@@ -20,4 +20,4 @@ This is especially handy when dealing with culture formatting. For example, if w
 ```csharp
 5.ToString("C", CultureInfo.CreateSpecificCulture("ja-JP")); // ¥5
 5.WithCurrency().WithCulture<JapaneseJapanCulture>().Format(); // ¥5
-````
+```
