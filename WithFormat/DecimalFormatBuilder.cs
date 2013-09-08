@@ -18,8 +18,7 @@ namespace WithFormat
 
         public DecimalFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
         {
-            var culture = new T();
-            Culture = culture.Culture();
+            Culture = new T().Culture();
             return this;
         }
 
