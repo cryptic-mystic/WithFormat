@@ -12,78 +12,78 @@ namespace UnitTests
         public void Format_WhenInvoked_ShouldReturnPercentFormattedString()
         {
             //Arrange
-            const decimal testDecimal = .50M;
+            const decimal test = .50M;
 
             //Act
-            var result = testDecimal.WithPercent().Format();
+            var result = test.WithPercent().Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("P"));
+            result.ShouldEqual(test.ToString("P"));
         }
 
         [Test]
         public void Format_WhenInvoked_ShouldReturnPercentFormattedStringWithPrecision()
         {
             //Arrange
-            const decimal testDecimal = .50M;
+            const decimal test = .50M;
 
             //Act
-            var result = testDecimal.WithPercent().WithPrecision(3).Format();
+            var result = test.WithPercent().WithPrecision(3).Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("P3"));
+            result.ShouldEqual(test.ToString("P3"));
         }
 
         [Test]
         public void Format_WhenInvoked_ShouldReturnPercentFormattedStringWithPrecisionAndCulture()
         {
             //Arrange
-            const decimal testDecimal = -0.39678M;
+            const decimal test = -0.39678M;
 
             //Act
-            var result = testDecimal.WithPercent().WithCulture<FrenchFranceCulture>().WithPrecision(1).Format();
+            var result = test.WithPercent().WithCulture<FrenchFranceCulture>().WithPrecision(1).Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("P1", CultureInfo.CreateSpecificCulture("fr-FR")));
+            result.ShouldEqual(test.ToString("P1", CultureInfo.CreateSpecificCulture("fr-FR")));
         }
 
         [Test]
         public void Format_WhenInvoked_ShouldReturnCurrencyFormattedString()
         {
             //Arrange
-            const decimal testDecimal = 0.39678M;
+            const decimal test = 0.39678M;
             
             //Act
-            var result = testDecimal.WithCurrency().Format();
+            var result = test.WithCurrency().Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("C"));
+            result.ShouldEqual(test.ToString("C"));
         }
 
         [Test]
         public void Format_WhenInvoked_ShouldReturnCurrencyFormattedStringWithPrecision()
         {
             //Arrange
-            const decimal testDecimal = 0.39678M;
+            const decimal test = 0.39678M;
 
             //Act
-            var result = testDecimal.WithCurrency().WithPrecision(5).Format();
+            var result = test.WithCurrency().WithPrecision(5).Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("C5"));
+            result.ShouldEqual(test.ToString("C5"));
         }
 
         [Test]
         public void Format_WhenInvoked_ShouldReturnCurrencyFormattedStringWithPrecisionAndCulture()
         {
             //Arrange
-            const decimal testDecimal = 0.39678M;
+            const decimal test = 0.39678M;
 
             //Act
-            var result = testDecimal.WithCurrency().WithPrecision(5).WithCulture<FrenchFranceCulture>().Format();
+            var result = test.WithCurrency().WithPrecision(5).WithCulture<FrenchFranceCulture>().Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("C5", CultureInfo.CreateSpecificCulture("fr-FR")));
+            result.ShouldEqual(test.ToString("C5", CultureInfo.CreateSpecificCulture("fr-FR")));
         }
 
         //STOP HERE********************************************************************************************************
@@ -96,13 +96,13 @@ namespace UnitTests
         public void Format_WhenInvoked_ShouldReturnExponentialFormattedString()
         {
             //Arrange
-            const decimal testDecimal = 555555555555555555M;
+            const decimal test = 555555555555555555M;
 
             //Act
-            var result = testDecimal.WithExponential().Format();
+            var result = test.WithExponential().Format();
 
             //Assert
-            result.ShouldEqual(testDecimal.ToString("E"));
+            result.ShouldEqual(test.ToString("E"));
         }
 
         [Test]

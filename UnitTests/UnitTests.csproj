@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DecimalFormatTests.cs" />
     <Compile Include="IntegerFormatTests.cs" />
+    <Compile Include="LongFormatTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
