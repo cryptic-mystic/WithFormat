@@ -13,4 +13,5 @@ WithFormat lets you do the same thing in a fluent manner:
 	5.WithPercent().WithPrecision(3).Format(); //also yields %500.000
     
 This is especially handy when dealing with culture formatting. For example, if we want to write a long using a Japanese currency format:
-	5.ToString("C", CultureInfo.CreateSpecificCulture("ja-JP"));
+	5.ToString("C", CultureInfo.CreateSpecificCulture("ja-JP")); // ¥5
+    5.WithCurrency().WithCulture<JapaneseJapanCulture>().Format(); // ¥5
