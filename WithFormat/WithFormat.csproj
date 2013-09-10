@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeExtentions.cs" />
     <Compile Include="DecimalExtentions.cs" />
     <Compile Include="DecimalFormatBuilder.cs" />
     <Compile Include="IFormatCulture.cs" />

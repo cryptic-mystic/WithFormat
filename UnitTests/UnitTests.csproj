@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeFormatTests.cs" />
     <Compile Include="DecimalFormatTests.cs" />
     <Compile Include="IntegerFormatTests.cs" />
     <Compile Include="LongFormatTests.cs" />
