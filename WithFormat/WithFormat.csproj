@@ -39,20 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateTimeExtentions.cs" />
-    <Compile Include="DecimalExtentions.cs" />
-    <Compile Include="DecimalFormatBuilder.cs" />
+    <Compile Include="DateTime\DateTimeExtentions.cs" />
+    <Compile Include="Decimal\DecimalExtentions.cs" />
+    <Compile Include="Decimal\DecimalFormatBuilder.cs" />
     <Compile Include="IFormatCulture.cs" />
-    <Compile Include="IntegerExtentions.cs" />
+    <Compile Include="Integer\IntegerExtentions.cs" />
     <Compile Include="ExtentionsTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExtentionsTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="IntegerFormatBuilder.cs" />
+    <Compile Include="Integer\IntegerFormatBuilder.cs" />
     <Compile Include="FormatConstants.cs" />
-    <Compile Include="LongExtentions.cs" />
-    <Compile Include="LongFormatBuilder.cs" />
+    <Compile Include="Long\LongExtentions.cs" />
+    <Compile Include="Long\LongFormatBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

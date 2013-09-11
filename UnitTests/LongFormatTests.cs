@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using NUnit.Framework;
 using Should;
-using WithFormat;
+using WithFormat.Long;
 
 namespace UnitTests
 {

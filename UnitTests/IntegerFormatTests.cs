@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using Should;
 using WithFormat;
+using WithFormat.Integer;
 
 namespace UnitTests
 {
