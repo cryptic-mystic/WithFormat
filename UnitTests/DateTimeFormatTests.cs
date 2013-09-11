@@ -93,7 +93,7 @@ namespace UnitTests
             var date = new DateTime(88, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithMinimumThreeDigits().Format();
+            var result = date.WithDate().IncludeYear().WithAtLeastThreeDigits().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyy"));
@@ -110,6 +110,32 @@ namespace UnitTests
 
             //Assert
             result.ShouldEqual(date.ToString("yyyy"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearFiveDigits()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+
+            //Act
+            var result = date.WithDate().IncludeYear().WithFiveDigits().Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("yyyyy"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearEightDigits()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+
+            //Act
+            var result = date.WithDate().IncludeYear().WithDigits(8).Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("yyyyyyyy"));
         }
 
         [Test]
@@ -136,6 +162,58 @@ namespace UnitTests
 
             //Assert
             result.ShouldEqual(date.ToString("yyyy : MMM"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithSingleDigitDay()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 3, 12, 1, 1, 1);
+
+            //Act
+            var result = date.WithDate().IncludeDay().WithAtLeastOneDigit().Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("%d"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithTwoDigitDay()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+
+            //Act
+            var result = date.WithDate().IncludeDay().WithTwoDigits().Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("dd"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithAbbreviatedDayOfWeek()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+
+            //Act
+            var result = date.WithDate().IncludeDay().WithAbbreviatedDayOfWeek().Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("ddd"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithFullDayOfWeek()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+
+            //Act
+            var result = date.WithDate().IncludeDay().WithFullDayOfWeek().Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("dddd"));
         }
     }
 }
