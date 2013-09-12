@@ -1,24 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace WithFormat.DateTime
 {
+    public class FormatElement
+    {
+        public string FormatString { get; set; }
+        public string TrailingDelimiter { get; set; }
+    }
+
     public class DateTimeFormatBuilder : IYearFormatter, IMonthFormatter, IDayFormatter
     {
+        private CultureInfo Culture { get; set; }
         private System.DateTime Input { get; set; }
-        private IList<string> FormatStrings { get; set; }
-        private string _delimiter = " ";
+        private IList<FormatElement> FormatStrings { get; set; }
+        private string _defaultDelimiter = " ";
 
         internal DateTimeFormatBuilder(System.DateTime input)
         {
             Input = input;
-            FormatStrings = new List<string>();
+            FormatStrings = new List<FormatElement>();
         }
 
         public DateTimeFormatBuilder UsingDelimiter(string delimiter)
         {
-            _delimiter = delimiter;
+            _defaultDelimiter = delimiter;
             return this;
         }
 
@@ -29,31 +37,31 @@ namespace WithFormat.DateTime
 
         DateTimeFormatBuilder IYearFormatter.WithOneDigit()
         {
-            FormatStrings.Add("%y");
+            FormatStrings.Add(new FormatElement { FormatString = "%y" });
             return this;
         }
 
         DateTimeFormatBuilder IYearFormatter.WithTwoDigits()
         {
-            FormatStrings.Add("yy");
+            FormatStrings.Add(new FormatElement { FormatString = "yy" });
             return this;
         }
 
         DateTimeFormatBuilder IYearFormatter.WithAtLeastThreeDigits()
         {
-            FormatStrings.Add("yyy");
+            FormatStrings.Add(new FormatElement { FormatString = "yyy" });
             return this;
         }
 
         DateTimeFormatBuilder IYearFormatter.WithFourDigits()
         {
-            FormatStrings.Add("yyyy");
+            FormatStrings.Add(new FormatElement { FormatString = "yyyy" });
             return this;
         }
 
         DateTimeFormatBuilder IYearFormatter.WithFiveDigits()
         {
-            FormatStrings.Add("yyyyy");
+            FormatStrings.Add(new FormatElement { FormatString = "yyyyy" });
             return this;
         }
 
@@ -62,7 +70,7 @@ namespace WithFormat.DateTime
             var yearDigits = String.Empty;
             for (var i = 0; i < numberOfDigits; i++) { yearDigits += 'y'; }
 
-            FormatStrings.Add(yearDigits);
+            FormatStrings.Add(new FormatElement { FormatString = yearDigits });
             return this;
         }
 
@@ -73,25 +81,25 @@ namespace WithFormat.DateTime
 
         DateTimeFormatBuilder IMonthFormatter.WithNumericMonth()
         {
-            FormatStrings.Add("%M");
+            FormatStrings.Add(new FormatElement { FormatString = "%M" });
             return this;
         }
 
         DateTimeFormatBuilder IMonthFormatter.WithTwoDigitMonth()
         {
-            FormatStrings.Add("MM");
+            FormatStrings.Add(new FormatElement { FormatString = "MM" });
             return this;
         }
 
         DateTimeFormatBuilder IMonthFormatter.WithAbbreviatedMonth()
         {
-            FormatStrings.Add("MMM");
+            FormatStrings.Add(new FormatElement { FormatString = "MMM" });
             return this;
         }
 
         DateTimeFormatBuilder IMonthFormatter.WithFullMonth()
         {
-            FormatStrings.Add("MMMM");
+            FormatStrings.Add(new FormatElement { FormatString = "MMMM" });
             return this;
         }
 
@@ -102,33 +110,52 @@ namespace WithFormat.DateTime
 
         DateTimeFormatBuilder IDayFormatter.WithAtLeastOneDigit()
         {
-            FormatStrings.Add("%d");
+            FormatStrings.Add(new FormatElement { FormatString = "%d" });
             return this;
         }
 
         DateTimeFormatBuilder IDayFormatter.WithTwoDigits()
         {
-            FormatStrings.Add("dd");
+            FormatStrings.Add(new FormatElement { FormatString = "dd" });
             return this;
         }
 
         DateTimeFormatBuilder IDayFormatter.WithAbbreviatedDayOfWeek()
         {
-            FormatStrings.Add("ddd");
+            FormatStrings.Add(new FormatElement { FormatString = "ddd" });
             return this;
         }
 
         DateTimeFormatBuilder IDayFormatter.WithFullDayOfWeek()
         {
-            FormatStrings.Add("dddd");
+            FormatStrings.Add(new FormatElement { FormatString = "dddd" });
+            return this;
+        }
+
+        public DateTimeFormatBuilder InsertCustomDelimiter(string customDelimiter)
+        {
+            FormatStrings.Last().TrailingDelimiter = customDelimiter;
+            return this;
+        }
+
+        public DateTimeFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
+        {
+            Culture = new T().Culture();
             return this;
         }
 
         public string Format()
         {
-            var formatString = FormatStrings.Aggregate(String.Empty, (current, s) => current + (s + _delimiter)).Trim(_delimiter.ToCharArray());
+            var formatString = FormatStrings.Aggregate(String.Empty, (current, s) =>
+                {
+                    if (String.IsNullOrEmpty(s.TrailingDelimiter))
+                    {
+                        s.TrailingDelimiter = _defaultDelimiter;
+                    }
+                    return current + (s.FormatString + s.TrailingDelimiter);
+                }).TrimEnd(_defaultDelimiter.ToCharArray());
 
-            return Input.ToString(formatString);
+            return Input.ToString(formatString, Culture);
         }
     }
 }

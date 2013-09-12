@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using NUnit.Framework;
 using Should;
 using WithFormat.DateTime;
@@ -214,6 +215,52 @@ namespace UnitTests
 
             //Assert
             result.ShouldEqual(date.ToString("dddd"));
+        }
+
+        [Test]
+        public void Format_WhenInvoke_ShouldInsertCustomDelimiterWhereSpecified()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+
+            //Act
+            var result =
+                date.WithDate()
+                    .IncludeYear()
+                    .WithFourDigits()
+                    .InsertCustomDelimiter(", ")
+                    .IncludeMonth()
+                    .WithFullMonth()
+                    .IncludeDay()
+                    .WithAtLeastOneDigit()
+                    .Format();
+
+            //Assert
+            result.ShouldEqual(date.ToString("yyyy, MMMM d"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldFormatDatetimeStringForSpecificCulture()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+            
+            //Act
+            var result =
+                date.WithDate()
+                    .IncludeYear()
+                    .WithFourDigits()
+                    .InsertCustomDelimiter(", ")
+                    .IncludeMonth()
+                    .WithFullMonth()
+                    .IncludeDay()
+                    .WithAtLeastOneDigit()
+                    .WithCulture<JapaneseJapanCulture>()
+                    .Format();
+
+
+            //Assert
+            result.ShouldEqual(date.ToString("yyyy, MMMM d", CultureInfo.CreateSpecificCulture("ja-JP")));
         }
     }
 }
