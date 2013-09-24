@@ -11,7 +11,7 @@ namespace WithFormat.DateTime
         public string TrailingDelimiter { get; set; }
     }
 
-    public class DateTimeFormatBuilder : IYearFormatter, IMonthFormatter, IDayFormatter
+    public class DateTimeFormatBuilder : IYearFormatter, IMonthFormatter, IDayFormatter, IMilliSecondsFormatter, ISecondsFormatter, IAmPmFormatter
     {
         private CultureInfo Culture { get; set; }
         private System.DateTime Input { get; set; }
@@ -30,6 +30,99 @@ namespace WithFormat.DateTime
             return this;
         }
 
+        #region MilliSecondsFormatting
+        public IMilliSecondsFormatter IncludeMilliSeconds()
+        {
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "%f"});
+            return this;
+        }
+        
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "ff"});
+            return this;
+        }
+        
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMilliseconds()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "fff"});
+            return this;
+        }
+        
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenThousandthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "ffff"});
+            return this;
+        }
+        
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredThousandthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "fffff"});
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMillionthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "ffffff"});
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenMillionthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "fffffff"});
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%F" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMillisecondsWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenThousandthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredThousandthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMillionthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFFFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenMillionthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFFFFF" });
+            return this;
+        }
+
+        #endregion
+
+        #region YearFormatting
         public IYearFormatter IncludeYear()
         {
             return this;
@@ -73,7 +166,9 @@ namespace WithFormat.DateTime
             FormatStrings.Add(new FormatElement { FormatString = yearDigits });
             return this;
         }
+        #endregion
 
+        #region MonthFormatting
         public IMonthFormatter IncludeMonth()
         {
             return this;
@@ -102,7 +197,9 @@ namespace WithFormat.DateTime
             FormatStrings.Add(new FormatElement { FormatString = "MMMM" });
             return this;
         }
+        #endregion
 
+        #region DayFormatting
         public IDayFormatter IncludeDay()
         {
             return this;
@@ -131,6 +228,45 @@ namespace WithFormat.DateTime
             FormatStrings.Add(new FormatElement { FormatString = "dddd" });
             return this;
         }
+        #endregion
+
+        #region SecondsFormatting
+        public ISecondsFormatter IncludeSeconds()
+        {
+            return this;
+        }
+
+        DateTimeFormatBuilder ISecondsFormatter.AsSingleDigit()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%s" });
+            return this;
+        }
+
+        DateTimeFormatBuilder ISecondsFormatter.AsDoubleDigit()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "ss" });
+            return this;
+        }
+        #endregion
+
+        #region AmPmFormatting
+        public IAmPmFormatter IncludeAmPmSpecifier()
+        {
+            return this;
+        }
+
+        DateTimeFormatBuilder IAmPmFormatter.WithSingleCharacter()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%t" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IAmPmFormatter.WithTwoCharacters()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "tt" });
+            return this;
+        }
+        #endregion
 
         public DateTimeFormatBuilder InsertCustomDelimiter(string customDelimiter)
         {

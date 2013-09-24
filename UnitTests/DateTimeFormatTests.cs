@@ -16,7 +16,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeMonth().WithNumericMonth().Format();
+            var result = date.AsDateTime().IncludeMonth().WithNumericMonth().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("%M"));
@@ -29,7 +29,7 @@ namespace UnitTests
             var date = new DateTime(1988, 1, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeMonth().WithTwoDigitMonth().Format();
+            var result = date.AsDateTime().IncludeMonth().WithTwoDigitMonth().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("MM"));
@@ -42,7 +42,7 @@ namespace UnitTests
             var date = new DateTime(1988, 1, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeMonth().WithAbbreviatedMonth().Format();
+            var result = date.AsDateTime().IncludeMonth().WithAbbreviatedMonth().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("MMM"));
@@ -55,7 +55,7 @@ namespace UnitTests
             var date = new DateTime(1988, 1, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeMonth().WithFullMonth().Format();
+            var result = date.AsDateTime().IncludeMonth().WithFullMonth().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("MMMM"));
@@ -68,7 +68,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithOneDigit().Format();
+            var result = date.AsDateTime().IncludeYear().WithOneDigit().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("%y"));
@@ -81,7 +81,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithTwoDigits().Format();
+            var result = date.AsDateTime().IncludeYear().WithTwoDigits().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yy"));
@@ -94,7 +94,7 @@ namespace UnitTests
             var date = new DateTime(88, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithAtLeastThreeDigits().Format();
+            var result = date.AsDateTime().IncludeYear().WithAtLeastThreeDigits().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyy"));
@@ -107,7 +107,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithFourDigits().Format();
+            var result = date.AsDateTime().IncludeYear().WithFourDigits().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyyy"));
@@ -120,7 +120,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithFiveDigits().Format();
+            var result = date.AsDateTime().IncludeYear().WithFiveDigits().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyyyy"));
@@ -133,7 +133,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithDigits(8).Format();
+            var result = date.AsDateTime().IncludeYear().WithDigits(8).Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyyyyyyy"));
@@ -146,7 +146,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format();
+            var result = date.AsDateTime().IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyyy MMM"));
@@ -159,7 +159,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().UsingDelimiter(" : ").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format();
+            var result = date.AsDateTime().UsingDelimiter(" : ").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("yyyy : MMM"));
@@ -172,7 +172,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 3, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeDay().WithAtLeastOneDigit().Format();
+            var result = date.AsDateTime().IncludeDay().WithAtLeastOneDigit().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("%d"));
@@ -185,7 +185,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeDay().WithTwoDigits().Format();
+            var result = date.AsDateTime().IncludeDay().WithTwoDigits().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("dd"));
@@ -198,7 +198,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeDay().WithAbbreviatedDayOfWeek().Format();
+            var result = date.AsDateTime().IncludeDay().WithAbbreviatedDayOfWeek().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("ddd"));
@@ -211,7 +211,7 @@ namespace UnitTests
             var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
 
             //Act
-            var result = date.WithDate().IncludeDay().WithFullDayOfWeek().Format();
+            var result = date.AsDateTime().IncludeDay().WithFullDayOfWeek().Format();
 
             //Assert
             result.ShouldEqual(date.ToString("dddd"));
@@ -225,7 +225,7 @@ namespace UnitTests
 
             //Act
             var result =
-                date.WithDate()
+                date.AsDateTime()
                     .IncludeYear()
                     .WithFourDigits()
                     .InsertCustomDelimiter(", ")
@@ -247,7 +247,7 @@ namespace UnitTests
             
             //Act
             var result =
-                date.WithDate()
+                date.AsDateTime()
                     .IncludeYear()
                     .WithFourDigits()
                     .InsertCustomDelimiter(", ")
@@ -262,5 +262,112 @@ namespace UnitTests
             //Assert
             result.ShouldEqual(date.ToString("yyyy, MMMM d", CultureInfo.CreateSpecificCulture("ja-JP")));
         }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeTenthSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InTenthsOfASecond().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("%f"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("%f"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeHundredthsSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InHundredthsOfASecond().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("ff"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("ff"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeMillisecondsSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InMilliseconds().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("fff"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("fff"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeTenThousandthsSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InTenThousandthsOfASecond().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("ffff"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("ffff"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeHundtredThousandthsSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecond().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("fffff"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("fffff"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeMillionthsSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecond().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("ffffff"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("ffffff"));
+        }
+
+        [Test]
+        public void Format_WhenInvoked_ShouldIncludeTenMillionthsSeconds()
+        {
+            //Arrange
+            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
+
+            //Act
+            var result = date.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecond().Format();
+
+            //Assert
+            Console.WriteLine(date.ToString("fffffff"));
+            Console.WriteLine(result);
+            result.ShouldEqual(date.ToString("fffffff"));
+        }
+
+
     }
 }
