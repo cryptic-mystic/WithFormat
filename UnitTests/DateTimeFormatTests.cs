@@ -273,8 +273,6 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InTenthsOfASecond().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("%f"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("%f"));
         }
 
@@ -288,8 +286,6 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InHundredthsOfASecond().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("ff"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("ff"));
         }
 
@@ -303,8 +299,6 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InMilliseconds().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("fff"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("fff"));
         }
 
@@ -318,8 +312,6 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InTenThousandthsOfASecond().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("ffff"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("ffff"));
         }
 
@@ -333,8 +325,6 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecond().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("fffff"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("fffff"));
         }
 
@@ -348,8 +338,6 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecond().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("ffffff"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("ffffff"));
         }
 
@@ -363,11 +351,7 @@ namespace UnitTests
             var result = date.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecond().Format();
 
             //Assert
-            Console.WriteLine(date.ToString("fffffff"));
-            Console.WriteLine(result);
             result.ShouldEqual(date.ToString("fffffff"));
         }
-
-
     }
 }
