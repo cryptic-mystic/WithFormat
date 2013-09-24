@@ -16,7 +16,7 @@ namespace WithFormat.Long
             FormatSpecifier = formatSpecifier;
         }
 
-        public LongFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
+        public LongFormatBuilder Using<T>() where T : IFormatCulture, new()
         {
             Culture = new T().Culture();
             return this;

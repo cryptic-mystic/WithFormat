@@ -138,7 +138,7 @@ namespace WithFormat.DateTime
             return this;
         }
 
-        public DateTimeFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
+        public DateTimeFormatBuilder Using<T>() where T : IFormatCulture, new()
         {
             Culture = new T().Culture();
             return this;

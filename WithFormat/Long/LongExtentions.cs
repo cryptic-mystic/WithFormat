@@ -2,32 +2,32 @@
 {
     public static class LongExtentions
     {
-        public static LongFormatBuilder WithCurrency(this long input)
+        public static LongFormatBuilder AsCurrency(this long input)
         {
             return new LongFormatBuilder(input, FormatConstants.CurrencySpecifier);
         }
 
-        public static LongFormatBuilder WithExponential(this long input)
+        public static LongFormatBuilder AsExponential(this long input)
         {
             return new LongFormatBuilder(input, FormatConstants.ExponentialSpecifier);
         }
 
-        public static LongFormatBuilder WithFixedPoint(this long input)
+        public static LongFormatBuilder AsFixedPoint(this long input)
         {
             return new LongFormatBuilder(input, FormatConstants.FixedPointSpecifier);
         }
 
-        public static LongFormatBuilder WithGeneral(this long input)
+        public static LongFormatBuilder AsGeneral(this long input)
         {
             return new LongFormatBuilder(input, FormatConstants.GeneralSpecifier);
         }
 
-        public static LongFormatBuilder WithNumeric(this long input)
+        public static LongFormatBuilder AsNumeric(this long input)
         {
             return new LongFormatBuilder(input, FormatConstants.NumericSpecifier);
         }
 
-        public static LongFormatBuilder WithPercent(this long input)
+        public static LongFormatBuilder AsPercent(this long input)
         {
             return new LongFormatBuilder(input, FormatConstants.PercentSpecifier);
         }

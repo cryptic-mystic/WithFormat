@@ -15,7 +15,7 @@ namespace UnitTests
             const decimal test = .50M;
 
             //Act
-            var result = test.WithPercent().Format();
+            var result = test.AsPercent().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("P"));
@@ -28,7 +28,7 @@ namespace UnitTests
             const decimal test = .50M;
 
             //Act
-            var result = test.WithPercent().WithPrecision(3).Format();
+            var result = test.AsPercent().WithPrecision(3).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("P3"));
@@ -41,7 +41,7 @@ namespace UnitTests
             const decimal test = -0.39678M;
 
             //Act
-            var result = test.WithPercent().WithCulture<FrenchFranceCulture>().WithPrecision(1).Format();
+            var result = test.AsPercent().Using<FrenchFranceCulture>().WithPrecision(1).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("P1", CultureInfo.CreateSpecificCulture("fr-FR")));
@@ -54,7 +54,7 @@ namespace UnitTests
             const decimal test = 0.39678M;
             
             //Act
-            var result = test.WithCurrency().Format();
+            var result = test.AsCurrency().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("C"));
@@ -67,7 +67,7 @@ namespace UnitTests
             const decimal test = 0.39678M;
 
             //Act
-            var result = test.WithCurrency().WithPrecision(5).Format();
+            var result = test.AsCurrency().WithPrecision(5).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("C5"));
@@ -80,7 +80,7 @@ namespace UnitTests
             const decimal test = 0.39678M;
 
             //Act
-            var result = test.WithCurrency().WithPrecision(5).WithCulture<FrenchFranceCulture>().Format();
+            var result = test.AsCurrency().WithPrecision(5).Using<FrenchFranceCulture>().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("C5", CultureInfo.CreateSpecificCulture("fr-FR")));
@@ -93,7 +93,7 @@ namespace UnitTests
             const decimal test = 555555555555555555M;
 
             //Act
-            var result = test.WithExponential().Format();
+            var result = test.AsExponential().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("E"));
@@ -106,7 +106,7 @@ namespace UnitTests
             const decimal test = 555555555555555555M;
 
             //Act
-            var result = test.WithExponential().WithPrecision(2).Format();
+            var result = test.AsExponential().WithPrecision(2).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("E2"));
@@ -119,7 +119,7 @@ namespace UnitTests
             const decimal test = 555555555555555555M;
 
             //Act
-            var result = test.WithExponential().WithCulture<FrenchFranceCulture>().Format();
+            var result = test.AsExponential().Using<FrenchFranceCulture>().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("E", CultureInfo.CreateSpecificCulture("fr-FR")));
@@ -131,7 +131,7 @@ namespace UnitTests
             const decimal test = 555555555555555555M;
 
             //Act
-            var result = test.WithExponential().WithPrecision(7).WithCulture<FrenchFranceCulture>().Format();
+            var result = test.AsExponential().WithPrecision(7).Using<FrenchFranceCulture>().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("E7", CultureInfo.CreateSpecificCulture("fr-FR")));
@@ -144,7 +144,7 @@ namespace UnitTests
             const decimal test = 6.123M;
 
             //Act
-            var result = test.WithFixedPoint().Format();
+            var result = test.AsFixedPoint().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("F"));
@@ -157,7 +157,7 @@ namespace UnitTests
             const decimal test = 6.123M;
 
             //Act
-            var result = test.WithFixedPoint().WithPrecision(10).Format();
+            var result = test.AsFixedPoint().WithPrecision(10).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("F10"));
@@ -170,7 +170,7 @@ namespace UnitTests
             const decimal test = 6.123M;
 
             //Act
-            var result = test.WithFixedPoint().WithPrecision(10).WithCulture<GermanGermanyCulture>().Format();
+            var result = test.AsFixedPoint().WithPrecision(10).Using<GermanGermanyCulture>().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("F10", CultureInfo.CreateSpecificCulture("de-DE")));
@@ -183,7 +183,7 @@ namespace UnitTests
             const decimal test = 6.123M;
 
             //Act
-            var result = test.WithGeneral().Format();
+            var result = test.AsGeneral().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("G"));
@@ -196,7 +196,7 @@ namespace UnitTests
             const decimal test = 6.123M;
 
             //Act
-            var result = test.WithGeneral().WithPrecision(9).Format();
+            var result = test.AsGeneral().WithPrecision(9).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("G9"));
@@ -209,7 +209,7 @@ namespace UnitTests
             const decimal test = 69;
 
             //Act
-            var result = test.WithGeneral().WithPrecision(9).WithCulture<GermanGermanyCulture>().Format();
+            var result = test.AsGeneral().WithPrecision(9).Using<GermanGermanyCulture>().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("G9", CultureInfo.CreateSpecificCulture("de-DE")));
@@ -222,7 +222,7 @@ namespace UnitTests
             const decimal test = -121234;
 
             //Act
-            var result = test.WithNumeric().Format();
+            var result = test.AsNumeric().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("N"));
@@ -235,7 +235,7 @@ namespace UnitTests
             const decimal test = -121234;
 
             //Act
-            var result = test.WithNumeric().WithPrecision(9).Format();
+            var result = test.AsNumeric().WithPrecision(9).Format();
 
             //Assert
             result.ShouldEqual(test.ToString("N9"));
@@ -248,7 +248,7 @@ namespace UnitTests
             const decimal test = -121234;
 
             //Act
-            var result = test.WithNumeric().WithPrecision(9).WithCulture<GermanGermanyCulture>().Format();
+            var result = test.AsNumeric().WithPrecision(9).Using<GermanGermanyCulture>().Format();
 
             //Assert
             result.ShouldEqual(test.ToString("N9", CultureInfo.CreateSpecificCulture("de-DE")));

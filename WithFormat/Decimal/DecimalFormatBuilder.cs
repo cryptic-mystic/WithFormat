@@ -16,7 +16,7 @@ namespace WithFormat.Decimal
             FormatSpecifier = formatSpecifier;
         }
 
-        public DecimalFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
+        public DecimalFormatBuilder Using<T>() where T : IFormatCulture, new()
         {
             Culture = new T().Culture();
             return this;

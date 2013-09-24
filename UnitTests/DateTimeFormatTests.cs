@@ -255,7 +255,7 @@ namespace UnitTests
                     .WithFullMonth()
                     .IncludeDay()
                     .WithAtLeastOneDigit()
-                    .WithCulture<JapaneseJapanCulture>()
+                    .Using<JapaneseJapanCulture>()
                     .Format();
 
 

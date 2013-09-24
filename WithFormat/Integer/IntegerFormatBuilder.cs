@@ -16,7 +16,7 @@ namespace WithFormat.Integer
             FormatSpecifier = formatSpecifier;
         }
 
-        public IntegerFormatBuilder WithCulture<T>() where T : IFormatCulture, new()
+        public IntegerFormatBuilder Using<T>() where T : IFormatCulture, new()
         {
             Culture = new T().Culture();
             return this;
