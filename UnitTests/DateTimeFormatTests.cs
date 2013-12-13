@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using FizzWare.NBuilder;
 using NUnit.Framework;
 using Should;
 using WithFormat.DateTime;
@@ -9,349 +11,63 @@ namespace UnitTests
     [TestFixture]
     public class DateTimeFormatTests
     {
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithDate()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
+        private static readonly RandomGenerator Gen = new RandomGenerator();
 
-            //Act
-            var result = date.AsDateTime().IncludeMonth().WithNumericMonth().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("%M"));
-        }
+        private static readonly IEnumerable<DateTime> Subjects =
+            Builder<DateTime>.CreateListOfSize(100)
+                .All()
+                .WithConstructor(() => new DateTime(Gen.Next(1, 9999), Gen.Next(1, 12), Gen.Next(1, 28), Gen.Next(0, 23), Gen.Next(0, 59), Gen.Next(0, 59), Gen.Next(0, 999)))
+                .Build();
 
         [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithDoubleMonth()
+        [TestCaseSource("Subjects")]
+        public void Format_WhenInvoked_ShouldReturnFormattedStringWithDate(DateTime subject)
         {
-            //Arrange
-            var date = new DateTime(1988, 1, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeMonth().WithTwoDigitMonth().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("MM"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithAbbrMonth()
-        {
-            //Arrange
-            var date = new DateTime(1988, 1, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeMonth().WithAbbreviatedMonth().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("MMM"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithFullMonth()
-        {
-            //Arrange
-            var date = new DateTime(1988, 1, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeMonth().WithFullMonth().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("MMMM"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearOneDigit()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithOneDigit().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("%y"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearTwoDigits()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithTwoDigits().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yy"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearThreeDigits()
-        {
-            //Arrange
-            var date = new DateTime(88, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithAtLeastThreeDigits().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyy"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearFourDigits()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithFourDigits().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyy"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearFiveDigits()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithFiveDigits().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyyy"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearEightDigits()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithDigits(8).Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyyyyyy"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearAndMonth()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyy MMM"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithYearAndMonthWithCustomDelimiter()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().UsingDelimiter(" : ").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyy : MMM"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithSingleDigitDay()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 3, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeDay().WithAtLeastOneDigit().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("%d"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithTwoDigitDay()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeDay().WithTwoDigits().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("dd"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithAbbreviatedDayOfWeek()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeDay().WithAbbreviatedDayOfWeek().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("ddd"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithFullDayOfWeek()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result = date.AsDateTime().IncludeDay().WithFullDayOfWeek().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("dddd"));
-        }
-
-        [Test]
-        public void Format_WhenInvoke_ShouldInsertCustomDelimiterWhereSpecified()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-
-            //Act
-            var result =
-                date.AsDateTime()
-                    .IncludeYear()
-                    .WithFourDigits()
-                    .InsertCustomDelimiter(", ")
-                    .IncludeMonth()
-                    .WithFullMonth()
-                    .IncludeDay()
-                    .WithAtLeastOneDigit()
-                    .Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyy, MMMM d"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldFormatDatetimeStringForSpecificCulture()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 1, 1);
-            
-            //Act
-            var result =
-                date.AsDateTime()
-                    .IncludeYear()
-                    .WithFourDigits()
-                    .InsertCustomDelimiter(", ")
-                    .IncludeMonth()
-                    .WithFullMonth()
-                    .IncludeDay()
-                    .WithAtLeastOneDigit()
-                    .Using<JapaneseJapanCulture>()
-                    .Format();
-
-
-            //Assert
-            result.ShouldEqual(date.ToString("yyyy, MMMM d", CultureInfo.CreateSpecificCulture("ja-JP")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeTenthSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InTenthsOfASecond().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("%f"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeHundredthsSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InHundredthsOfASecond().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("ff"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeMillisecondsSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InMilliseconds().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("fff"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeTenThousandthsSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InTenThousandthsOfASecond().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("ffff"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeHundtredThousandthsSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecond().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("fffff"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeMillionthsSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecond().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("ffffff"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldIncludeTenMillionthsSeconds()
-        {
-            //Arrange
-            var date = new DateTime(1988, 12, 13, 12, 1, 45, 134);
-
-            //Act
-            var result = date.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecond().Format();
-
-            //Assert
-            result.ShouldEqual(date.ToString("fffffff"));
+            subject.AsDateTime().IncludeMonth().WithNumericMonth().Format().ShouldEqual(subject.ToString("%M"));
+            subject.AsDateTime().IncludeMonth().WithTwoDigitMonth().Format().ShouldEqual(subject.ToString("MM"));
+            subject.AsDateTime().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("MMM"));
+            subject.AsDateTime().IncludeMonth().WithFullMonth().Format().ShouldEqual(subject.ToString("MMMM"));
+            subject.AsDateTime().IncludeYear().WithOneDigit().Format().ShouldEqual(subject.ToString("%y"));
+            subject.AsDateTime().IncludeYear().WithTwoDigits().Format().ShouldEqual(subject.ToString("yy"));
+            subject.AsDateTime().IncludeYear().WithAtLeastThreeDigits().Format().ShouldEqual(subject.ToString("yyy"));
+            subject.AsDateTime().IncludeYear().WithFourDigits().Format().ShouldEqual(subject.ToString("yyyy"));
+            subject.AsDateTime().IncludeYear().WithFiveDigits().Format().ShouldEqual(subject.ToString("yyyyy"));
+            subject.AsDateTime().IncludeYear().WithDigits(8).Format().ShouldEqual(subject.ToString("yyyyyyyy"));
+            subject.AsDateTime().IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("yyyy MMM"));
+            subject.AsDateTime().UsingDelimiter(" : ").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("yyyy : MMM"));
+            subject.AsDateTime().IncludeDay().WithAtLeastOneDigit().Format().ShouldEqual(subject.ToString("%d"));
+            subject.AsDateTime().IncludeDay().WithTwoDigits().Format().ShouldEqual(subject.ToString("dd"));
+            subject.AsDateTime().IncludeDay().WithAbbreviatedDayOfWeek().Format().ShouldEqual(subject.ToString("ddd"));
+            subject.AsDateTime().IncludeDay().WithFullDayOfWeek().Format().ShouldEqual(subject.ToString("dddd"));
+
+            subject.AsDateTime()
+                .IncludeYear()
+                .WithFourDigits()
+                .InsertCustomDelimiter(", ")
+                .IncludeMonth()
+                .WithFullMonth()
+                .IncludeDay()
+                .WithAtLeastOneDigit()
+                .Format().ShouldEqual(subject.ToString("yyyy, MMMM d"));
+
+            subject.AsDateTime()
+                .IncludeYear()
+                .WithFourDigits()
+                .InsertCustomDelimiter(", ")
+                .IncludeMonth()
+                .WithFullMonth()
+                .IncludeDay()
+                .WithAtLeastOneDigit()
+                .Using<JapaneseJapanCulture>()
+                .Format().ShouldEqual(subject.ToString("yyyy, MMMM d", CultureInfo.CreateSpecificCulture("ja-JP")));
+
+            subject.AsDateTime().IncludeMilliSeconds().InTenthsOfASecond().Format().ShouldEqual(subject.ToString("%f"));
+            subject.AsDateTime().IncludeMilliSeconds().InHundredthsOfASecond().Format().ShouldEqual(subject.ToString("ff"));
+            subject.AsDateTime().IncludeMilliSeconds().InMilliseconds().Format().ShouldEqual(subject.ToString("fff"));
+            subject.AsDateTime().IncludeMilliSeconds().InTenThousandthsOfASecond().Format().ShouldEqual(subject.ToString("ffff"));
+            subject.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecond().Format().ShouldEqual(subject.ToString("fffff"));
+            subject.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecond().Format().ShouldEqual(subject.ToString("ffffff"));
+            subject.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecond().Format().ShouldEqual(subject.ToString("fffffff"));
         }
     }
 }
