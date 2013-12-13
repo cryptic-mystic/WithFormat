@@ -1,7 +1,8 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using FizzWare.NBuilder;
 using NUnit.Framework;
 using Should;
-using WithFormat;
 using WithFormat.Integer;
 
 namespace UnitTests
@@ -9,328 +10,43 @@ namespace UnitTests
     [TestFixture]
     public class IntegerFormatTests
     {
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnIntegerFormatBuilder()
-        {
-            //Arrange
-            const int test = 5;
-            
-            //Act
-            var result = test.AsDecimal();
+        private static readonly RandomGenerator Gen = new RandomGenerator();
+        private static readonly IList<int> Subjects = new List<int>();
 
-            //Assert
-            result.ShouldBeType<IntegerFormatBuilder>();
+        static IntegerFormatTests()
+        {
+            for (var i = 0; i < 100; i++)
+                Subjects.Add(Gen.Int());
         }
 
         [Test]
-        public void Format_WhenInvoked_ShouldReturnADecimalString()
+        [TestCaseSource("Subjects")]
+        public void Format_WhenInvoked_ShouldReturnADecimalString(int subject)
         {
-            //Arrange
-            const int test = 5;
-
-            //Act
-            var result = test.AsDecimal().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("D"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnDecimalStringWithPrecision()
-        {
-            //Arrange
-            const int test = 5;
-
-            //Act
-            var result = test.AsDecimal().WithPrecision(3).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("D3"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnHexFormattedString()
-        {
-            //Arrange
-            const int test = 5;
-
-            //Act
-            var result = test.AsHexadecimal().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("X"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnHexFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = 5;
-
-            //Act
-            var result = test.AsHexadecimal().WithPrecision(3).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("X3"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnCurrencyFormattedString()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsCurrency().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("C"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnCurrencyFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsCurrency().WithPrecision(6).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("C6"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnCurrencyFormattedStringWithCulture()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsCurrency().Using<JapaneseJapanCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("C", CultureInfo.CreateSpecificCulture("ja-JP")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnCurrencyFormattedStringWithCultureAndPrecision()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsCurrency().Using<JapaneseJapanCulture>().WithPrecision(4).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JP")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnExponentialFormattedString()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsExponential().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("E"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnExponentialFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsExponential().WithPrecision(2).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("E2"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnExponentialFormattedStringWithCulture()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsExponential().Using<FrenchFranceCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("E", CultureInfo.CreateSpecificCulture("fr-FR")));
-        }
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnExponentialFormattedStringWithCultureAndPrecision()
-        {
-            //Arrange
-            const int test = 4;
-
-            //Act
-            var result = test.AsExponential().WithPrecision(7).Using<FrenchFranceCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("E7", CultureInfo.CreateSpecificCulture("fr-FR")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFixedPointFormattedString()
-        {
-            //Arrange
-            const int test = 6;
-
-            //Act
-            var result = test.AsFixedPoint().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("F"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFixedPointFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = 6;
-
-            //Act
-            var result = test.AsFixedPoint().WithPrecision(10).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("F10"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnFixedPointFormattedStringWithCulture()
-        {
-            //Arrange
-            const int test = 6;
-
-            //Act
-            var result = test.AsFixedPoint().WithPrecision(10).Using<GermanGermanyCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("F10", CultureInfo.CreateSpecificCulture("de-DE")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnGeneralFormattedString()
-        {
-            //Arrange
-            const int test = 69;
-
-            //Act
-            var result = test.AsGeneral().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("G"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnGeneralFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = 69;
-
-            //Act
-            var result = test.AsGeneral().WithPrecision(9).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("G9"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnGeneralFormattedStringWithPrecisionAndCulture()
-        {
-            //Arrange
-            const int test = 69;
-
-            //Act
-            var result = test.AsGeneral().WithPrecision(9).Using<GermanGermanyCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("G9", CultureInfo.CreateSpecificCulture("de-DE")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnNumericFormattedString()
-        {
-            //Arrange
-            const int test = -121234;
-
-            //Act
-            var result = test.AsNumeric().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("N"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnNumericFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = -121234;
-
-            //Act
-            var result = test.AsNumeric().WithPrecision(9).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("N9"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnNumericFormattedStringWithPrecisionAndCulture()
-        {
-            //Arrange
-            const int test = -121234;
-
-            //Act
-            var result = test.AsNumeric().WithPrecision(9).Using<GermanGermanyCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("N9", CultureInfo.CreateSpecificCulture("de-DE")));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnPercentFormattedString()
-        {
-            //Arrange
-            const int test = 1;
-
-            //Act
-            var result = test.AsPercent().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("P"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnPercentFormattedStringWithPrecision()
-        {
-            //Arrange
-            const int test = 2;
-
-            //Act
-            var result = test.AsPercent().WithPrecision(3).Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("P3"));
-        }
-
-        [Test]
-        public void Format_WhenInvoked_ShouldReturnPercentFormattedStringWithPrecisionAndCulture()
-        {
-            //Arrange
-            const int test = 3;
-
-            //Act
-            var result = test.AsPercent().WithPrecision(3).Using<GermanGermanyCulture>().Format();
-
-            //Assert
-            result.ShouldEqual(test.ToString("P3", CultureInfo.CreateSpecificCulture("de-DE")));
+            subject.AsDecimal().Format().ShouldEqual(subject.ToString("D"));
+            subject.AsDecimal().WithPrecision(3).Format().ShouldEqual(subject.ToString("D3"));
+            subject.AsHexadecimal().Format().ShouldEqual(subject.ToString("X"));
+            subject.AsHexadecimal().WithPrecision(3).Format().ShouldEqual(subject.ToString("X3"));
+            subject.AsCurrency().Format().ShouldEqual(subject.ToString("C"));
+            subject.AsCurrency().WithPrecision(6).Format().ShouldEqual(subject.ToString("C6"));
+            subject.AsCurrency().Using<JapaneseJapanCulture>().Format().ShouldEqual(subject.ToString("C", CultureInfo.CreateSpecificCulture("ja-JP")));
+            subject.AsCurrency().Using<JapaneseJapanCulture>().WithPrecision(4).Format().ShouldEqual(subject.ToString("C4", CultureInfo.CreateSpecificCulture("ja-JP")));
+            subject.AsExponential().WithPrecision(2).Format().ShouldEqual(subject.ToString("E2"));
+            subject.AsExponential().Format().ShouldEqual(subject.ToString("E"));
+            subject.AsExponential().Using<FrenchFranceCulture>().Format().ShouldEqual(subject.ToString("E", CultureInfo.CreateSpecificCulture("fr-FR")));
+            subject.AsExponential().WithPrecision(7).Using<FrenchFranceCulture>().Format().ShouldEqual(subject.ToString("E7", CultureInfo.CreateSpecificCulture("fr-FR")));
+            subject.AsFixedPoint().Format().ShouldEqual(subject.ToString("F"));
+            subject.AsFixedPoint().WithPrecision(10).Format().ShouldEqual(subject.ToString("F10"));
+            subject.AsFixedPoint().WithPrecision(10).Using<GermanGermanyCulture>().Format().ShouldEqual(subject.ToString("F10", CultureInfo.CreateSpecificCulture("de-DE")));
+            subject.AsGeneral().Format().ShouldEqual(subject.ToString("G"));
+            subject.AsGeneral().WithPrecision(9).Format().ShouldEqual(subject.ToString("G9"));
+            subject.AsGeneral().WithPrecision(9).Using<GermanGermanyCulture>().Format().ShouldEqual(subject.ToString("G9", CultureInfo.CreateSpecificCulture("de-DE")));
+            subject.AsNumeric().Format().ShouldEqual(subject.ToString("N"));
+            subject.AsNumeric().WithPrecision(9).Format().ShouldEqual(subject.ToString("N9"));
+            subject.AsNumeric().WithPrecision(9).Using<GermanGermanyCulture>().Format().ShouldEqual(subject.ToString("N9", CultureInfo.CreateSpecificCulture("de-DE")));
+            subject.AsPercent().Format().ShouldEqual(subject.ToString("P"));
+            subject.AsPercent().WithPrecision(3).Format().ShouldEqual(subject.ToString("P3"));
+            subject.AsPercent().WithPrecision(3).Using<GermanGermanyCulture>().Format().ShouldEqual(subject.ToString("P3", CultureInfo.CreateSpecificCulture("de-DE")));
         }
     }
 }
