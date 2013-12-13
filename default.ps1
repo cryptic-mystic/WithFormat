@@ -8,7 +8,7 @@ properties {
 task default -depends Test
 
 task Test -depends Compile {
-    exec { packages\NUnit.Runners.2.6.2\tools\nunit-console.exe UnitTests\bin\$configuration\UnitTests.dll /framework=net-4.5 /nodots /xml=unittests.xml /trace=Verbose }
+    exec { packages\NUnit.Runners.2.6.3\tools\nunit-console.exe UnitTests\bin\$configuration\UnitTests.dll /framework=net-4.5 /nodots /xml=unittests.xml /trace=Verbose }
 }
 
 task Compile {
