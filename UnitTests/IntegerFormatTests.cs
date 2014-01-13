@@ -3,6 +3,7 @@ using System.Globalization;
 using FizzWare.NBuilder;
 using NUnit.Framework;
 using Should;
+using WithFormat.Cultures;
 using WithFormat.Integer;
 
 namespace UnitTests
