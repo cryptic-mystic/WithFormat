@@ -111,6 +111,7 @@ namespace UnitTests
             subject.AsDateTime().UsingDelimiter("-").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("yyyy-MMM"));
             subject.AsDateTime().UsingDelimiter("+").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("yyyy+MMM"));
             subject.AsDateTime().UsingDelimiter(" ").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("yyyy MMM"));
+            subject.AsDateTime().UsingDelimiter("t").IncludeYear().WithFourDigits().IncludeMonth().WithAbbreviatedMonth().Format().ShouldEqual(subject.ToString("yyyy\\tMMM"));
         }
 
         [Test]
@@ -159,6 +160,12 @@ namespace UnitTests
                 .IncludeMonth().WithFullMonth()
                 .IncludeDay().WithAtLeastOneDigit().InsertCustomDelimiter("!")
                 .Format().ShouldEqual(subject.ToString("yyyy MMMM d!"));
+
+            subject.AsDateTime()
+                .IncludeYear().WithFourDigits()
+                .IncludeMonth().WithFullMonth()
+                .IncludeDay().WithAtLeastOneDigit().InsertCustomDelimiter("t")
+                .Format().ShouldEqual(subject.ToString("yyyy MMMM d\\t"));
         }
 
         [Test]
@@ -172,6 +179,21 @@ namespace UnitTests
             subject.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecond().Format().ShouldEqual(subject.ToString("fffff"));
             subject.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecond().Format().ShouldEqual(subject.ToString("ffffff"));
             subject.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecond().Format().ShouldEqual(subject.ToString("fffffff"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeAmPmSpecifier_WhenInvoked_ShouldIncludeAmOrPm(DateTime subject)
+        {
+            subject.AsDateTime().IncludeAmPmSpecifier().WithSingleCharacter().Format().ShouldEqual(subject.ToString("%t"));
+            subject.AsDateTime().IncludeAmPmSpecifier().WithTwoCharacters().Format().ShouldEqual(subject.ToString("tt"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeTimePeriod_WhenInvoked_ShouldIncludeTimePeriod(DateTime subject)
+        {
+            subject.AsDateTime().IncludeTimePeriod().Format().ShouldEqual(subject.ToString("%g"));
         }
 
         [Test]

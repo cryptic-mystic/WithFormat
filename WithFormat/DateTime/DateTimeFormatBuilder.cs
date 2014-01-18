@@ -33,7 +33,7 @@ namespace WithFormat.DateTime
 
         public DateTimeFormatBuilder UsingDelimiter(string delimiter)
         {
-            _defaultDelimiter = delimiter;
+            _defaultDelimiter = ("\\" + delimiter);
             return this;
         }
 
@@ -256,6 +256,8 @@ namespace WithFormat.DateTime
 
         #endregion
 
+
+
         #region AmPmFormatting
         public IAmPmFormatter IncludeAmPmSpecifier()
         {
@@ -275,9 +277,15 @@ namespace WithFormat.DateTime
         }
         #endregion
 
+        public DateTimeFormatBuilder IncludeTimePeriod()
+        {
+            FormatStrings.Add(new FormatElement{ FormatString = "%g" });
+            return this;
+        }
+
         public DateTimeFormatBuilder InsertCustomDelimiter(string customDelimiter)
         {
-            FormatStrings.Last().TrailingDelimiter = customDelimiter;
+            FormatStrings.Last().TrailingDelimiter = ("\\" + customDelimiter);
             return this;
         }
 
