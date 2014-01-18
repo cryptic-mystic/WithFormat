@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using WithFormat.Cultures;
 
 namespace WithFormat.DateTime
@@ -10,6 +11,11 @@ namespace WithFormat.DateTime
     {
         public string FormatString { get; set; }
         public string TrailingDelimiter { get; set; }
+
+        public override string ToString()
+        {
+            return FormatString + TrailingDelimiter;
+        }
     }
 
     public class DateTimeFormatBuilder : IYearFormatter, IMonthFormatter, IDayFormatter, IMilliSecondsFormatter, ISecondsFormatter, IAmPmFormatter
@@ -283,14 +289,14 @@ namespace WithFormat.DateTime
 
         public string Format()
         {
-            var formatString = FormatStrings.Aggregate(String.Empty, (current, s) =>
+            var formatString = FormatStrings.Aggregate(new StringBuilder(), (current, s) =>
                 {
                     if (String.IsNullOrEmpty(s.TrailingDelimiter))
                     {
                         s.TrailingDelimiter = _defaultDelimiter;
                     }
-                    return current + (s.FormatString + s.TrailingDelimiter);
-                }).TrimEnd(_defaultDelimiter.ToCharArray());
+                    return current.Append(s.ToString());
+                }).ToString().TrimEnd(_defaultDelimiter.ToCharArray());
 
             return Input.ToString(formatString, Culture);
         }
