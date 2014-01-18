@@ -53,13 +53,25 @@
     <Compile Include="Decimal\DecimalExtentions.cs" />
     <Compile Include="Decimal\DecimalFormatBuilder.cs" />
     <Compile Include="Cultures\IFormatCulture.cs" />
+    <Compile Include="Byte\ByteExtentions.cs" />
+    <Compile Include="Byte\ByteFormatBuilder.cs" />
+    <Compile Include="ULong\ULongExtentions.cs" />
+    <Compile Include="ULong\ULongFormatBuilder.cs" />
+    <Compile Include="UInteger\UIntegerExtentions.cs" />
+    <Compile Include="UInteger\UIntegerFormatBuilder.cs" />
+    <Compile Include="SByte\SByteFormatBuilder.cs" />
+    <Compile Include="SByte\SByteExtentions.cs" />
+    <Compile Include="UShort\UShortExtentions.cs" />
+    <Compile Include="UShort\UShortFormatBuilder.cs" />
+    <Compile Include="Short\ShortExtentions.cs" />
+    <Compile Include="Short\ShortFormatBuilder.cs" />
     <Compile Include="Integer\IntegerExtentions.cs" />
     <Compile Include="Cultures\ExtentionsTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExtentionsTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Integer\IntegerFormatBuilder.cs" />
+    <Compile Include="Integer\IntergralFormatBuilder.cs" />
     <Compile Include="FormatConstants.cs" />
     <Compile Include="Long\LongExtentions.cs" />
     <Compile Include="Long\LongFormatBuilder.cs" />

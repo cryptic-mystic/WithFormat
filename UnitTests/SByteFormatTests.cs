@@ -6,26 +6,26 @@ using FizzWare.NBuilder;
 using NUnit.Framework;
 using Should;
 using WithFormat.Cultures;
-using WithFormat.Integer;
+using WithFormat.SByte;
 
 namespace UnitTests
 {
     [TestFixture]
-    public class IntegerFormatTests
+    public class SByteFormatTests
     {
         private static readonly RandomGenerator Gen = new RandomGenerator();
-        private static readonly IList<int> Subjects = new List<int>();
+        private static readonly IList<sbyte> Subjects = new List<sbyte>();
         private static readonly IEnumerable<Type> CultureSubjects = typeof(JapaneseJapanCulture).Assembly.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IFormatCulture)));
 
-        static IntegerFormatTests()
+        static SByteFormatTests()
         {
             for (var i = 0; i < 100; i++)
-                Subjects.Add(Gen.Int());
+                Subjects.Add(Gen.SByte());
         }
 
         [Test]
         [TestCaseSource("Subjects")]
-        public void Format_WhenInvoked_ShouldReturnADecimalString(int subject)
+        public void Format_WhenInvoked_ShouldReturnADecimalString(sbyte subject)
         {
             subject.AsDecimal().Format().ShouldEqual(subject.ToString("D"));
             subject.AsDecimal().WithPrecision(3).Format().ShouldEqual(subject.ToString("D3"));
@@ -51,19 +51,20 @@ namespace UnitTests
         {
             var formatCulture = (IFormatCulture)Activator.CreateInstance(subject);
 
-            var method = typeof(IntegerFormatBuilder).GetMethod("Using");
+            var method = typeof(SByteFormatBuilder).GetMethod("Using");
             var genericMethod = method.MakeGenericMethod(subject);
             foreach (var sample in Subjects)
             {
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsCurrency(), null)).Format().ShouldEqual(sample.ToString("C", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsExponential(), null)).Format().ShouldEqual(sample.ToString("E", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsFixedPoint(), null)).Format().ShouldEqual(sample.ToString("F", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsGeneral(), null)).Format().ShouldEqual(sample.ToString("G", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsNumeric(), null)).Format().ShouldEqual(sample.ToString("N", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsPercent(), null)).Format().ShouldEqual(sample.ToString("P", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsDecimal(), null)).Format().ShouldEqual(sample.ToString("D", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
-                ((IntegerFormatBuilder)genericMethod.Invoke(sample.AsHexadecimal(), null)).Format().ShouldEqual(sample.ToString("X", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsCurrency(), null)).Format().ShouldEqual(sample.ToString("C", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsExponential(), null)).Format().ShouldEqual(sample.ToString("E", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsFixedPoint(), null)).Format().ShouldEqual(sample.ToString("F", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsGeneral(), null)).Format().ShouldEqual(sample.ToString("G", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsNumeric(), null)).Format().ShouldEqual(sample.ToString("N", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsPercent(), null)).Format().ShouldEqual(sample.ToString("P", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsDecimal(), null)).Format().ShouldEqual(sample.ToString("D", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                ((SByteFormatBuilder)genericMethod.Invoke(sample.AsHexadecimal(), null)).Format().ShouldEqual(sample.ToString("X", CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
             }
         }
+
     }
 }

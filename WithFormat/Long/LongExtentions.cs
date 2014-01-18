@@ -31,5 +31,15 @@
         {
             return new LongFormatBuilder(input, FormatConstants.PercentSpecifier);
         }
+
+        public static LongFormatBuilder AsDecimal(this long input)
+        {
+            return new LongFormatBuilder(input, FormatConstants.DecimalSpecifier);
+        }
+
+        public static LongFormatBuilder AsHexadecimal(this long input)
+        {
+            return new LongFormatBuilder(input, FormatConstants.HexidecimalSpecifier);
+        }
     }
 }

@@ -53,6 +53,12 @@
   <ItemGroup>
     <Compile Include="DateTimeFormatTests.cs" />
     <Compile Include="DecimalFormatTests.cs" />
+    <Compile Include="ByteFormatTests.cs" />
+    <Compile Include="ULongFormatTests.cs" />
+    <Compile Include="UIntegerFormatTests.cs" />
+    <Compile Include="SByteFormatTests.cs" />
+    <Compile Include="UShortFormatTests.cs" />
+    <Compile Include="ShortFormatTests.cs" />
     <Compile Include="IntegerFormatTests.cs" />
     <Compile Include="LongFormatTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
