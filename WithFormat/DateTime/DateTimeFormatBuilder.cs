@@ -18,7 +18,7 @@ namespace WithFormat.DateTime
         }
     }
 
-    public class DateTimeFormatBuilder : IYearFormatter, IMonthFormatter, IDayFormatter, IMilliSecondsFormatter, ISecondsFormatter, IAmPmFormatter
+    public class DateTimeFormatBuilder : IYearFormatter, IMonthFormatter, IDayFormatter, IHoursFormatter, IMinutesFormatter, ISecondsFormatter, IMilliSecondsFormatter, IAmPmFormatter, IUtcFormatter
     {
         private CultureInfo Culture { get; set; }
         private System.DateTime Input { get; set; }
@@ -256,7 +256,55 @@ namespace WithFormat.DateTime
 
         #endregion
 
+        #region MinutesFormatting
+        public IMinutesFormatter IncludeMinutes()
+        {
+            return this;
+        }
 
+        DateTimeFormatBuilder IMinutesFormatter.WithSingleDigit()
+        {
+            FormatStrings.Add(new FormatElement {FormatString = "%m"});
+            return this;
+        }
+
+        DateTimeFormatBuilder IMinutesFormatter.WithTwoDigits()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "mm" });
+            return this;
+        }
+        #endregion
+
+        #region HoursFormatting
+        public IHoursFormatter IncludeHours()
+        {
+            return this;
+        }
+
+        DateTimeFormatBuilder IHoursFormatter.With12HrSingleDigit()
+        {
+            FormatStrings.Add(new FormatElement{FormatString = "%h"});
+            return this;
+        }
+
+        DateTimeFormatBuilder IHoursFormatter.With12HrDoubleDigit()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "hh" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IHoursFormatter.With24HrSingleDigit()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%H" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IHoursFormatter.With24HrDoubleDigit()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "HH" });
+            return this;
+        }
+        #endregion
 
         #region AmPmFormatting
         public IAmPmFormatter IncludeAmPmSpecifier()
@@ -277,9 +325,41 @@ namespace WithFormat.DateTime
         }
         #endregion
 
+        #region UTC Formatting
+
+        public IUtcFormatter IncludeUtcOffset()
+        {
+            return this;
+        }
+
+        DateTimeFormatBuilder IUtcFormatter.WithSingleDigitHours()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%z" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IUtcFormatter.WithDoubleDigitHours()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "zz" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IUtcFormatter.WithHourAndMinutesOffset()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "zzz" });
+            return this;
+        }
+        #endregion
+
         public DateTimeFormatBuilder IncludeTimePeriod()
         {
             FormatStrings.Add(new FormatElement{ FormatString = "%g" });
+            return this;
+        }
+        
+        public DateTimeFormatBuilder IncludeTimeZone()
+        {
+            FormatStrings.Add(new FormatElement{ FormatString = "%K" });
             return this;
         }
 

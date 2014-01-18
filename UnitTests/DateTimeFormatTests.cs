@@ -170,7 +170,7 @@ namespace UnitTests
 
         [Test]
         [TestCaseSource("Subjects")]
-        public void WithMilliseconds_WhenInvoked_ShouldIncludeMillisecondsInString(DateTime subject)
+        public void IncludeMilliseconds_WhenInvoked_ShouldIncludeMillisecondsInString(DateTime subject)
         {
             subject.AsDateTime().IncludeMilliSeconds().InTenthsOfASecond().Format().ShouldEqual(subject.ToString("%f"));
             subject.AsDateTime().IncludeMilliSeconds().InHundredthsOfASecond().Format().ShouldEqual(subject.ToString("ff"));
@@ -179,6 +179,14 @@ namespace UnitTests
             subject.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecond().Format().ShouldEqual(subject.ToString("fffff"));
             subject.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecond().Format().ShouldEqual(subject.ToString("ffffff"));
             subject.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecond().Format().ShouldEqual(subject.ToString("fffffff"));
+
+            subject.AsDateTime().IncludeMilliSeconds().InTenthsOfASecondWithoutZeroes().Format().ShouldEqual(subject.ToString("%F"));
+            subject.AsDateTime().IncludeMilliSeconds().InHundredthsOfASecondWithoutZeroes().Format().ShouldEqual(subject.ToString("FF"));
+            subject.AsDateTime().IncludeMilliSeconds().InMillisecondsWithoutZeroes().Format().ShouldEqual(subject.ToString("FFF"));
+            subject.AsDateTime().IncludeMilliSeconds().InTenThousandthsOfASecondWithoutZeroes().Format().ShouldEqual(subject.ToString("FFFF"));
+            subject.AsDateTime().IncludeMilliSeconds().InHundredThousandthsOfASecondWithoutZeroes().Format().ShouldEqual(subject.ToString("FFFFF"));
+            subject.AsDateTime().IncludeMilliSeconds().InMillionthsOfASecondWithoutZeroes().Format().ShouldEqual(subject.ToString("FFFFFF"));
+            subject.AsDateTime().IncludeMilliSeconds().InTenMillionthsOfASecondWithoutZeroes().Format().ShouldEqual(subject.ToString("FFFFFFF"));
         }
 
         [Test]
@@ -194,6 +202,48 @@ namespace UnitTests
         public void IncludeTimePeriod_WhenInvoked_ShouldIncludeTimePeriod(DateTime subject)
         {
             subject.AsDateTime().IncludeTimePeriod().Format().ShouldEqual(subject.ToString("%g"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeSeconds_WhenInvoked_ShouldIncludeFormattedSeconds(DateTime subject)
+        {
+            subject.AsDateTime().IncludeSeconds().AsSingleDigit().Format().ShouldEqual(subject.ToString("%s"));
+            subject.AsDateTime().IncludeSeconds().AsDoubleDigit().Format().ShouldEqual(subject.ToString("ss"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeMinutes_WhenInvoked_ShouldIncludeMinutesFormatted(DateTime subject)
+        {
+            subject.AsDateTime().IncludeMinutes().WithSingleDigit().Format().ShouldEqual(subject.ToString("%m"));
+            subject.AsDateTime().IncludeMinutes().WithTwoDigits().Format().ShouldEqual(subject.ToString("mm"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeHours_WhenInvoked_ShouldIncludeHours(DateTime subject)
+        {
+            subject.AsDateTime().IncludeHours().With12HrSingleDigit().Format().ShouldEqual(subject.ToString("%h"));
+            subject.AsDateTime().IncludeHours().With12HrDoubleDigit().Format().ShouldEqual(subject.ToString("hh"));
+            subject.AsDateTime().IncludeHours().With24HrSingleDigit().Format().ShouldEqual(subject.ToString("%H"));
+            subject.AsDateTime().IncludeHours().With24HrDoubleDigit().Format().ShouldEqual(subject.ToString("HH"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeTimeZone_WhenInvoked_ShouldIncludeTimeZone(DateTime subject)
+        {
+            subject.AsDateTime().IncludeTimeZone().Format().ShouldEqual(subject.ToString("%K"));
+        }
+
+        [Test]
+        [TestCaseSource("Subjects")]
+        public void IncludeUtcOffset_WhenInvoked_ShouldIncludeUtcOffset(DateTime subject)
+        {
+            subject.AsDateTime().IncludeUtcOffset().WithSingleDigitHours().Format().ShouldEqual(subject.ToString("%z"));
+            subject.AsDateTime().IncludeUtcOffset().WithDoubleDigitHours().Format().ShouldEqual(subject.ToString("zz"));
+            subject.AsDateTime().IncludeUtcOffset().WithHourAndMinutesOffset().Format().ShouldEqual(subject.ToString("zzz"));
         }
 
         [Test]
@@ -215,7 +265,7 @@ namespace UnitTests
                     }
                     catch (ArgumentOutOfRangeException)
                     {
-                        //These are thrown when a calendar doesn't support one of the test dates. I don't care.
+                        //These are thrown when a calendar doesn't support one of the test dates. And I don't care..
                     }
                 }
         }

@@ -46,9 +46,12 @@
     <Compile Include="DateTime\DateTimeFormatBuilder.cs" />
     <Compile Include="DateTime\IAmPmFormatter.cs" />
     <Compile Include="DateTime\IDayFormatter.cs" />
+    <Compile Include="DateTime\IHoursFormatter.cs" />
+    <Compile Include="DateTime\IMinutesFormatter.cs" />
     <Compile Include="DateTime\IMonthFormatter.cs" />
     <Compile Include="DateTime\IMilliSecondsFormatter.cs" />
     <Compile Include="DateTime\ISecondsFormatter.cs" />
+    <Compile Include="DateTime\IUTCFormatter.cs" />
     <Compile Include="DateTime\IYearFormatter.cs" />
     <Compile Include="Decimal\DecimalExtentions.cs" />
     <Compile Include="Decimal\DecimalFormatBuilder.cs" />
