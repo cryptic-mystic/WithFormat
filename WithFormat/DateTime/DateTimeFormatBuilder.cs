@@ -37,98 +37,6 @@ namespace WithFormat.DateTime
             return this;
         }
 
-        #region MilliSecondsFormatting
-        public IMilliSecondsFormatter IncludeMilliSeconds()
-        {
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InTenthsOfASecond()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "%f"});
-            return this;
-        }
-        
-        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredthsOfASecond()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "ff"});
-            return this;
-        }
-        
-        DateTimeFormatBuilder IMilliSecondsFormatter.InMilliseconds()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "fff"});
-            return this;
-        }
-        
-        DateTimeFormatBuilder IMilliSecondsFormatter.InTenThousandthsOfASecond()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "ffff"});
-            return this;
-        }
-        
-        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredThousandthsOfASecond()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "fffff"});
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InMillionthsOfASecond()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "ffffff"});
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InTenMillionthsOfASecond()
-        {
-            FormatStrings.Add(new FormatElement{FormatString = "fffffff"});
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InTenthsOfASecondWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "%F" });
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredthsOfASecondWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "FF" });
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InMillisecondsWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "FFF" });
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InTenThousandthsOfASecondWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "FFFF" });
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredThousandthsOfASecondWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "FFFFF" });
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InMillionthsOfASecondWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "FFFFFF" });
-            return this;
-        }
-
-        DateTimeFormatBuilder IMilliSecondsFormatter.InTenMillionthsOfASecondWithoutZeroes()
-        {
-            FormatStrings.Add(new FormatElement { FormatString = "FFFFFFF" });
-            return this;
-        }
-
-        #endregion
-
         #region YearFormatting
         public IYearFormatter IncludeYear()
         {
@@ -254,6 +162,98 @@ namespace WithFormat.DateTime
             FormatStrings.Add(new FormatElement { FormatString = "ss" });
             return this;
         }
+        #endregion
+
+        #region MilliSecondsFormatting
+        public IMilliSecondsFormatter IncludeMilliSeconds()
+        {
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%f" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "ff" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMilliseconds()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "fff" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenThousandthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "ffff" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredThousandthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "fffff" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMillionthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "ffffff" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenMillionthsOfASecond()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "fffffff" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "%F" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMillisecondsWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenThousandthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InHundredThousandthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InMillionthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFFFF" });
+            return this;
+        }
+
+        DateTimeFormatBuilder IMilliSecondsFormatter.InTenMillionthsOfASecondWithoutZeroes()
+        {
+            FormatStrings.Add(new FormatElement { FormatString = "FFFFFFF" });
+            return this;
+        }
+
         #endregion
 
         #region AmPmFormatting

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using FizzWare.NBuilder;
 using NUnit.Framework;
 using Should;
@@ -17,8 +18,10 @@ namespace UnitTests
         private static readonly IEnumerable<DateTime> Subjects =
             Builder<DateTime>.CreateListOfSize(100)
                 .All()
-                .WithConstructor(() => new DateTime(Gen.Next(1, 9999), Gen.Next(1, 12), Gen.Next(1, 28), Gen.Next(0, 23), Gen.Next(0, 59), Gen.Next(0, 59), Gen.Next(0, 999)))
+                .WithConstructor(() => new DateTime(Gen.Next(0, 9999), Gen.Next(1, 12), Gen.Next(1, 28), Gen.Next(0, 23), Gen.Next(0, 59), Gen.Next(0, 59), Gen.Next(0, 999)))
                 .Build();
+
+        private static readonly IEnumerable<Type> CultureSubjects = typeof(JapaneseJapanCulture).Assembly.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IFormatCulture)));
 
         [Test]
         [TestCaseSource("Subjects")]
@@ -172,19 +175,27 @@ namespace UnitTests
         }
 
         [Test]
-        [TestCaseSource("Subjects")]
-        public void Format_WhenInvoked_ShouldReturnFormattedStringWithDate(DateTime subject)
+        [TestCaseSource("CultureSubjects")]
+        public void Format_WhenInvoked_ShouldReturnCultureFormattedString(Type subject)
         {
-            subject.AsDateTime()
-                .IncludeYear()
-                .WithFourDigits()
-                .InsertCustomDelimiter(", ")
-                .IncludeMonth()
-                .WithFullMonth()
-                .IncludeDay()
-                .WithAtLeastOneDigit()
-                .Using<JapaneseJapanCulture>()
-                .Format().ShouldEqual(subject.ToString("yyyy, MMMM d", CultureInfo.CreateSpecificCulture("ja-JP")));
+                var formatCulture = (IFormatCulture)Activator.CreateInstance(subject);
+
+                var method = typeof(DateTimeFormatBuilder).GetMethod("Using");
+                var genericMethod = method.MakeGenericMethod(subject);
+                foreach (var sample in Subjects)
+                {
+                    try
+                    {
+                        ((DateTimeFormatBuilder)
+                            genericMethod.Invoke(sample.AsDateTime().IncludeDay().WithFullDayOfWeek(), null)).Format()
+                            .ShouldEqual(sample.ToString("dddd",
+                                CultureInfo.CreateSpecificCulture(formatCulture.GetCultureCode())));
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        //These are thrown when a calendar doesn't support one of the test dates. I don't care.
+                    }
+                }
         }
     }
 }
